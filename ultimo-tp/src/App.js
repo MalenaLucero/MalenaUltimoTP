@@ -1,56 +1,39 @@
 import React, { useEffect, useState } from 'react'
+import FetchData from './components/FetchData'
+import MainInput from './components/MainInput'
 
-const item = {
-	grant_type: 'client_credentials',
-	client_id: '6m2HxnAKyt3JYwyAMueRfmjsSKFGHmzg',
-	client_secret: 'asyxAGKM6hxOO3nz'
-}
-const toUrlEncoded = (obj) =>
-	Object.keys(obj).map((k) => encodeURIComponent(k) + '=' + encodeURIComponent(obj[k])).join('&')
-
-const fetchData = () => {
-	return fetch('https://test.api.amadeus.com/v1/security/oauth2/token', {
-		method: 'post',
-		headers: {
-			'Content-Type': 'application/x-www-form-urlencoded'
-		},
-		body: toUrlEncoded(item)
-	})
-		.then((res) => res.json())
-		.then((data) => {
-			const accessToken = data.access_token
-			return fetch(
-				'https://test.api.amadeus.com/v2/shopping/flight-offers?originLocationCode=SYD&destinationLocationCode=BKK&departureDate=2020-01-01&returnDate=2020-01-05&adults=2',
-				{
-					headers: {
-						Authorization: `Bearer ${accessToken}`
-					}
-				}
-			)
-				.then((res) => res.json())
-				.then((data) => {
-					return data
-				})
-		})
+const flightSearchObject = {
+	departure: '', 
+	arrival: '', 
+	departureDate: '', 
+	arrivalDate: '', 
+	passengers: ''
 }
 
 const App = () => {
 	const [ flights, setFlights ] = useState([ '' ])
-	const [ isLoading, toogleLoading ] = useState(true)
+	//const [ isLoading, toogleLoading ] = useState(true)
+	const [ flightSearch, setFlightSearch ] = useState(flightSearchObject)
+	let searchObject = []
 	useEffect(() => {
 		async function getTrip(params) {
-			const response = await fetchData()
+			const response = await FetchData()
+			console.log(response)
 			setFlights(response.data)
-			toogleLoading(false)
+			//toogleLoading(false)
 		}
 		getTrip()
 	}, [])
-	return isLoading ? (
-		'cargando'
-	) : (
+	return (
 		<div>
-			<h1>Mirá esos vuelo papá</h1>
-			<ul>{flights.map((f) => <li>{f.id}</li>)}</ul>
+			<h1>Elegi tu vuelo</h1>
+			<form>
+				{MainInput(flightSearch, setFlightSearch, searchObject)}
+				<button onClick={()=> {
+					searchObject = flightSearch
+					console.log(searchObject)}}>Confirm</button>
+			</form>
+			{/*<ul>{flights.map((f) => <li>{f.id}</li>)}</ul>*/}
 		</div>
 	)
 }
