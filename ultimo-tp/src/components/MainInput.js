@@ -1,6 +1,6 @@
 import React from 'react'
 
-const MainInput = (flightSearch, setFlightSearch, searchObject) =>{
+const MainInput = ({flightSearch, setFlightSearch}) =>{
     return(
         <div>
             <input placeholder={'departure'} value={flightSearch.departure} onChange={(e)=>setFlightSearch({...flightSearch, departure: e.target.value})}/>
