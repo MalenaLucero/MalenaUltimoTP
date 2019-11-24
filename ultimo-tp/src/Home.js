@@ -34,7 +34,7 @@ const Home = () => {
 					setSearchObject(flightSearch)}}>Confirm</button>
 			</form>
 			{isLoading ? <p>Cargando...</p> : null}
-			{showResults && flights !== undefined ? <Results availableFlights={flights} numberToShow={4}/> : null}
+			{showResults && flights !== undefined ? <Results availableFlights={flights}/> : null}
 		</div>
 	)
 }
