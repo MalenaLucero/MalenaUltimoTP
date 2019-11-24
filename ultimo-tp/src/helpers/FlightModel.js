@@ -1,9 +1,9 @@
 const FlightModel = {
-	departure: '', 
-	arrival: '', 
-	departureDate: '', 
-	arrivalDate: '', 
-	passengers: ''
+	iataOrigin: '',
+	iataDest: '',
+	fromDate: '',
+	toDate: '',
+	adults: ''
 }
 
 export default FlightModel
