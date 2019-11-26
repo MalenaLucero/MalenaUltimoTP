@@ -1,0 +1,26 @@
+.navContainer{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    background-color: grey;
+   .pageTitle{
+        margin: auto 15px;
+    }
+    ul{
+        list-style: none;
+        align-self: center;
+        padding: 0;
+        &.optionsNav{
+            margin-left: auto;
+        }
+        li{
+            display: inline;
+            margin: 0 15px;
+            a{
+               color: white; 
+               text-decoration: none;
+            }  
+        }
+    } 
+}
+
