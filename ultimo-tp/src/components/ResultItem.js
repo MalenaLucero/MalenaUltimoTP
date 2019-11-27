@@ -17,7 +17,7 @@ const ResultItem = (props) =>{
         <li>
             {itineraries.map((f,i)=><ItemContent key={i} data={f} toOrFrom={i}/>)}
             <p>{price.grandTotal}</p>
-            <a href={"#"} onClick={()=>console.log(id)}>Book now</a>
+            <button href={"#"} onClick={()=>console.log(id)}>Book now</button>
         </li>
     )
     
