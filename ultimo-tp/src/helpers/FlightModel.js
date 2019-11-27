@@ -3,7 +3,8 @@ const FlightModel = {
 	iataDest: '',
 	fromDate: '',
 	toDate: '',
-	adults: ''
+	adults: '',
+	oneWay: true
 }
 
 export default FlightModel

@@ -9,11 +9,9 @@ const AppRouter = () =>{
     return(
         <Router>
             <MainNav/>
-            <Route exact path='/'>
-                <Home/>
-            </Route>
-            <Route path='/results/:flight' component={Results}/>
-            <Route exact path='/payment' component={Payment}/>
+            <Route exact path='/'><Home/></Route>
+            <Route path='/results/:flight/:oneWay' component={Results}/>
+            <Route path='/payment/:flight/:id' component={Payment}/>
         </Router>
     )
 }
