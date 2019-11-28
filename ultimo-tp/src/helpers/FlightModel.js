@@ -1,9 +1,9 @@
 const FlightModel = {
-	iataOrigin: 'EZE',
-	iataDest: 'CAN',
-	fromDate: '2020-01-01',
-	toDate: '2020-01-05',
-	adults: '2',
+	iataOrigin: '',
+	iataDest: '',
+	fromDate: '',
+	toDate: '',
+	adults: '',
 	oneWay: false
 }
 

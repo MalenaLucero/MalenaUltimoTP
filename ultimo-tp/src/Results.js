@@ -3,22 +3,18 @@ import FetchData from './helpers/FetchData'
 import ResultItem from './components/ResultItem'
 
 const Results = ({match}) =>{
-    //const {flight} = match.params
+    const flightSearch = JSON.parse(atob(match.params.flight))
     const [ isLoading, toggleLoading ] = useState(false)
     const [ showResults, setShowResults] = useState(false)
     const [ flights, setFlights ] = useState([ '' ])
-    console.log(match.params.flight)
-    let decodedFlight = JSON.parse(atob(match.params.flight))
-    console.log(decodedFlight)
     useEffect(() => {
 		async function getTrip() {
             toggleLoading(true)
-            //let response = await FetchData(flight)
-            //console.log(response.data)
-            //setFlights(response.data.filter(f=>f.oneWay.toString() === oneWay))
-            //console.log(response.data.filter(f=>f.oneWay.toString() === oneWay))
+            let response = await FetchData()
+            console.log(response.data.filter(f=>f.oneWay === flightSearch.oneWay))
+            setFlights(response.data.filter(f=>f.oneWay === flightSearch.oneWay))
             toggleLoading(false)
-            //setShowResults(true)
+            setShowResults(true)
 		}
 		getTrip()
 	}, [])
@@ -33,7 +29,8 @@ const Results = ({match}) =>{
                 <button >Airline</button>
             </nav>
             {isLoading ? <p>Loading...</p> : null}
-            {showResults ? flights.map((f,i)=><ResultItem key={i} flight={f}/>) : null}
+            {showResults && flights.length !== 0 ? flights.map((f,i)=><ResultItem key={i} flight={f} flightSearch={flightSearch}/>) : null}
+            {showResults && flights.length === 0 ? <p>No flights were found</p> : null}
         </div>
     )
 }

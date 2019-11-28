@@ -1,5 +1,3 @@
-import React from 'react'
-
 const FlightDurationConverter = (PTtime) =>{
     return PTtime.slice(2)
 }

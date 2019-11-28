@@ -9,7 +9,7 @@ const Payment = ({match}) =>{
     useEffect(() => {
 		async function getTrip() {
             toggleLoading(true)
-            let response = await FetchData(flight)
+            let response = await FetchData(JSON.parse(atob(flight)))
             setChosenFlight(response.data.find(f=>f.id === id))
             toggleLoading(false)
             setShowResults(true)
