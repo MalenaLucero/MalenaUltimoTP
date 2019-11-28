@@ -7,12 +7,14 @@ const Results = ({match}) =>{
     const [ isLoading, toggleLoading ] = useState(false)
     const [ showResults, setShowResults] = useState(false)
     const [ flights, setFlights ] = useState([ '' ])
+    console.log(typeof oneWay)
     useEffect(() => {
 		async function getTrip() {
             toggleLoading(true)
             let response = await FetchData(flight)
             console.log(response.data)
-            setFlights(response.data)
+            setFlights(response.data.filter(f=>f.oneWay.toString() === oneWay))
+            console.log(response.data.filter(f=>f.oneWay.toString() === oneWay))
             toggleLoading(false)
             setShowResults(true)
 		}

@@ -24,9 +24,9 @@ const ResultItem = ({flight}) =>{
         <li>
             {itineraries.map((f,i)=><ItemContent key={i} data={f}/>)}
             <p>${price.grandTotal}</p>
-            {<button>
+            <button>
                 <Link to={`/payment/originLocationCode=${iataOrigin}&destinationLocationCode=${iataDest}&departureDate=${fromDate}&returnDate=${toDate}&adults=${adults}/${id}`}>Book now</Link>
-            </button>}
+            </button>
         </li>
     )
 }
