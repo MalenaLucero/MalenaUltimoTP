@@ -14,13 +14,12 @@ const ItemContent = ({data}) =>{
 }
 
 const ResultItem = ({flight}) =>{
-    const {itineraries, price, id} = flight
+    const {itineraries, price, id, travelerPricings} = flight
     const iataOrigin = itineraries[0].segments[0].departure.iataCode
     const iataDest = itineraries[0].segments[itineraries[0].segments.length - 1].arrival.iataCode
     const fromDate = itineraries[0].segments[0].departure.at.toString().slice(0, 10)
-    //falta resolver toDate (esta hardcodeado)
-    const toDate = itineraries[itineraries.length - 1].segments[2].departure.at.toString().slice(0, 10)
-    const adults = '2'
+    const toDate = itineraries[itineraries.length - 1].segments[itineraries[itineraries.length - 1].segments.length - 1].departure.at.toString().slice(0, 10)
+    const adults = travelerPricings.length
     return(
         <li>
             {itineraries.map((f,i)=><ItemContent key={i} data={f}/>)}
@@ -30,7 +29,6 @@ const ResultItem = ({flight}) =>{
             </button>}
         </li>
     )
-    
 }
 
 export default ResultItem

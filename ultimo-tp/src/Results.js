@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import FetchData from './helpers/FetchData'
 import ResultItem from './components/ResultItem'
 
-
 const Results = ({match}) =>{
     const {flight, oneWay} = match.params
     const [ isLoading, toggleLoading ] = useState(false)
