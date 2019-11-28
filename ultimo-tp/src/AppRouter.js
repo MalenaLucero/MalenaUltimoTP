@@ -10,7 +10,7 @@ const AppRouter = () =>{
         <Router>
             <MainNav/>
             <Route exact path='/'><Home/></Route>
-            <Route path='/results/:flight/:oneWay' component={Results}/>
+            <Route path='/results/:flight' component={Results}/>
             <Route path='/payment/:flight/:id' component={Payment}/>
         </Router>
     )

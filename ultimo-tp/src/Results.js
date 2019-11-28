@@ -3,20 +3,22 @@ import FetchData from './helpers/FetchData'
 import ResultItem from './components/ResultItem'
 
 const Results = ({match}) =>{
-    const {flight, oneWay} = match.params
+    //const {flight} = match.params
     const [ isLoading, toggleLoading ] = useState(false)
     const [ showResults, setShowResults] = useState(false)
     const [ flights, setFlights ] = useState([ '' ])
-    console.log(typeof oneWay)
+    console.log(match.params.flight)
+    let decodedFlight = JSON.parse(atob(match.params.flight))
+    console.log(decodedFlight)
     useEffect(() => {
 		async function getTrip() {
             toggleLoading(true)
-            let response = await FetchData(flight)
-            console.log(response.data)
-            setFlights(response.data.filter(f=>f.oneWay.toString() === oneWay))
-            console.log(response.data.filter(f=>f.oneWay.toString() === oneWay))
+            //let response = await FetchData(flight)
+            //console.log(response.data)
+            //setFlights(response.data.filter(f=>f.oneWay.toString() === oneWay))
+            //console.log(response.data.filter(f=>f.oneWay.toString() === oneWay))
             toggleLoading(false)
-            setShowResults(true)
+            //setShowResults(true)
 		}
 		getTrip()
 	}, [])
