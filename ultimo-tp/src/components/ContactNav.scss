@@ -1,0 +1,22 @@
+.contactNavContainer{
+    display: flex;
+    ul{
+        padding:0;
+        margin: 0;
+        a{
+            text-decoration: none;
+        }
+        &.footerNav{
+            a{
+                margin-right: 20px;
+            }
+        }
+        &.socialMedia{
+            margin-left: auto;
+            a{
+                margin-left: 20px;
+            }
+        }
+    }
+}
+
