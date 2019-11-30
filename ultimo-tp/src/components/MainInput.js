@@ -1,70 +1,29 @@
-import React, {useState} from 'react'
-import { useFormik } from 'formik';
+import React from 'react'
+import { Formik, Field, Form, ErrorMessage } from 'formik';
 import {Link} from 'react-router-dom'
 import FlightModel from '../helpers/FlightModel'
 
 const MainInput = ({flightSearch, setFlightSearch}) =>{
-    const {iataOrigin, iataDest, fromDate, toDate, adults, oneWay} = FlightModel
-    const redirectLink = <Link to={`results/${btoa(JSON.stringify(flightSearch))}`}>Confirm</Link>
+    const redirect = () => <Link to={`results/${btoa(JSON.stringify(flightSearch))}`}>Confirm</Link>
     console.log(flightSearch)
-    const formik = useFormik({
-        initialValues:{
-            iataOrigin,
-            iataDest,
-            fromDate,
-            toDate,
-            adults,
-            oneWay
-        },
-        onSubmit: values => {
-            setFlightSearch(values)
-            
-        },
-    })
     return(
-        <form onSubmit={formik.handleSubmit}>
-            <label htmlFor="iataOrigin">Origin</label>
-            <input
-                id="iataOrigin"
-                name="iataOrigin"
-                type="iataOrigin"
-                onChange={formik.handleChange}
-                value={formik.values.iataOrigin}
-            />
-            <label htmlFor="iataDest">Destination</label>
-            <input
-                id="iataDest"
-                name="iataDest"
-                type="iataDest"
-                onChange={formik.handleChange}
-                value={formik.values.iataDest}
-            />
-            <input
-                id="fromDate"
-                name="fromDate"
-                type="fromDate"
-                onChange={formik.handleChange}
-                value={formik.values.fromDate}
-            />
-            <input
-                id="toDate"
-                name="toDate"
-                type="toDate"
-                onChange={formik.handleChange}
-                value={formik.values.toDate}
-            />
-            <input
-                id="adults"
-                name="adults"
-                type="adults"
-                onChange={formik.handleChange}
-                value={formik.values.adults}
-            />
-            <button type="submit">
-                <Link to={`results/${btoa(JSON.stringify(flightSearch))}`}>Confirm</Link>
-            </button>
-        </form>
-    )
+        <Formik 
+            initialValues = {FlightModel}
+            onSubmit={ (values, {setSubmitting}) => {
+                setFlightSearch(values)
+                setSubmitting(false)
+                redirect()
+            }}
+        >
+            <Form>
+                <Field name="iataOrigin" type="text" placeholder="Origin"/>
+                <Field name="iataDest" type="text" placeholder="Destination"/>
+                <Field name="fromDate" type="text" placeholder="From"/>
+                <Field name="toDate" type="text" placeholder="To"/>
+                <Field name="adults" type="text" placeholder="Adults"/>
+                <button type="submit">Conf</button>
+            </Form>
+        </Formik>)
 
 
 
