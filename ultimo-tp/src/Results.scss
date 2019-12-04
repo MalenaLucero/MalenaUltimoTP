@@ -1,0 +1,12 @@
+.resultsContainer{
+    display: flex;
+    background-color: lightgrey;
+    .filters, .advertisements{
+        flex-basis: 15%;
+        flex-grow: 0;
+    }
+    .results{
+        flex-basis: 70%;
+        flex-grow: 0;
+    }
+}
