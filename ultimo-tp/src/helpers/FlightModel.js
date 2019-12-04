@@ -4,7 +4,7 @@ const FlightModel = {
 	fromDate: '',
 	toDate: '',
 	adults: '',
-	oneWay: false
+	oneWay: "false"
 }
 
 export default FlightModel

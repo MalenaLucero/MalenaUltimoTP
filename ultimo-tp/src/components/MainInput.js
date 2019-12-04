@@ -1,19 +1,18 @@
 import React from 'react'
 import { Formik, Field, Form, ErrorMessage } from 'formik';
-import {Link} from 'react-router-dom'
+import {useHistory} from 'react-router-dom'
 import FlightModel from '../helpers/FlightModel'
 
-const MainInput = ({flightSearch, setFlightSearch}) =>{
-    const redirect = () => <Link to={`results/${btoa(JSON.stringify(flightSearch))}`}>Confirm</Link>
-    console.log(flightSearch)
+const MainInput = () =>{
+    let history = useHistory()
+    const redirectFunction = (flight) =>{
+        history.push(`results/${btoa(JSON.stringify(flight))}`)
+    }
     return(
         <Formik 
             initialValues = {FlightModel}
-            onSubmit={ (values, {setSubmitting}) => {
-                setFlightSearch(values)
-                setSubmitting(false)
-                redirect()
-            }}
+            onSubmit={values => {
+                redirectFunction(values)}}
         >
             <Form>
                 <Field name="iataOrigin" type="text" placeholder="Origin"/>
@@ -21,9 +20,15 @@ const MainInput = ({flightSearch, setFlightSearch}) =>{
                 <Field name="fromDate" type="text" placeholder="From"/>
                 <Field name="toDate" type="text" placeholder="To"/>
                 <Field name="adults" type="text" placeholder="Adults"/>
+                
+                <label htmlFor={'roundTrip'}>Round trip</label>
+                <Field id={'roundTrip'} name="oneWay" type="radio" value="false"/>
+                <label htmlFor={'oneWay'}>One way</label>
+                <Field id={'oneWay'} name="oneWay" type="radio" value="true"/>
                 <button type="submit">Conf</button>
             </Form>
-        </Formik>)
+        </Formik>
+    )
 
 
 
