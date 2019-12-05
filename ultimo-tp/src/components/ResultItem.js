@@ -40,7 +40,15 @@ const ItemContent = ({data}) =>{
                     timeAndDate={segments[0].departure.at}
                 />
                 <div className={'segmentsData'}>
-                    <p>{FlightDurationConverter(duration)}</p>
+                    <p className={'duration'}>{FlightDurationConverter(duration)}</p>
+                    <ul className={'segmentsDots'}>
+                        {segments.map(i=><li key={i}>o</li>)}
+                        <li>o</li>
+                    </ul>
+                    <ul className={'segmentsList'}>
+                        {segments.map((s,i)=><li key={i}>{s.departure.iataCode}</li>)}
+                        <li>{segments[segments.length-1].arrival.iataCode}</li>
+                    </ul>
                 </div>
                 <CityAndDate
                     className={'toData'}
