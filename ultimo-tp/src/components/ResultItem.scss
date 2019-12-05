@@ -21,6 +21,9 @@ ul{
                 .airline{
                 flex-basis: 20%;
                 flex-grow: 0;
+                img{
+                    max-width: 60px;
+                }
                 }
                 .fromData{
                     flex-basis: 20%;

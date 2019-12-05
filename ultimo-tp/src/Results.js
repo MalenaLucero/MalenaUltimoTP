@@ -13,7 +13,7 @@ const Results = ({match}) =>{
 		async function getTrip() {
             toggleLoading(true)
             let response = await FetchData(flightSearch)
-            console.log(response.data.filter(f=>f.oneWay === flightSearch.oneWay))
+            console.log(response.data.filter(f=>f.oneWay.toString() === flightSearch.oneWay))
             setFlights(response.data.filter(f=>f.oneWay.toString() === flightSearch.oneWay))
             toggleLoading(false)
             setShowResults(true)

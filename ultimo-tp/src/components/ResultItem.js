@@ -1,27 +1,52 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import FlightDurationConverter from '../helpers/FlightDurationConverter'
 import './ResultItem.scss'
+import timeConverter from '../helpers/timeConverter'
+import dateConverter from '../helpers/dateConverter'
+
+const CityAndDate = ({className, iataCode, timeAndDate}) =>{
+    const [cityName, setCityName] = useState('')
+    useEffect(()=>{
+        async function getCity(){
+            let city = await fetch(`https://airports-dpvsjndcod.now.sh/city/${iataCode}`)
+                .then(res => res.json())
+                .then(data => data.state)
+            setCityName(city)
+        }
+        getCity()
+    },[])
+    return(
+        <ul className={className}>
+            <li>{timeConverter(timeAndDate)}</li>
+            <li>{cityName}</li>
+            <li>{dateConverter(timeAndDate)}</li>
+        </ul>
+    )
+}
 
 const ItemContent = ({data}) =>{
     const {duration, segments} = data
+    const carrierCode = segments[0].carrierCode
     return(
         <div className={'itemData'}>
             <div className={'itemDetails'}>
-                <p className={'airline'}>A</p>
-                <ul className={'fromData'}>
-                    <li></li>
-                    <li>{segments[0].departure.iataCode}</li>
-                    <li></li>
-                </ul>
-                <ul className={'segmentsData'}>
-                    <li>{FlightDurationConverter(duration)}</li>
-                </ul>
-                <ul className={'toData'}>
-                    <li></li>
-                    <li>{segments[segments.length-1].arrival.iataCode}</li>
-                    <li></li>
-                </ul>
+                <div className={'airline'}>
+                    <img src={`https://content.airhex.com/content/logos/airlines_${carrierCode}_200_200_s.png`}/>
+                </div>
+                <CityAndDate
+                    className={'fromData'}
+                    iataCode={segments[0].departure.iataCode}
+                    timeAndDate={segments[0].departure.at}
+                />
+                <div className={'segmentsData'}>
+                    <p>{FlightDurationConverter(duration)}</p>
+                </div>
+                <CityAndDate
+                    className={'toData'}
+                    iataCode={segments[segments.length-1].arrival.iataCode}
+                    timeAndDate={segments[segments.length-1].arrival.at}
+                />
             </div> 
             <p>Operated by <span></span></p>
         </div>
