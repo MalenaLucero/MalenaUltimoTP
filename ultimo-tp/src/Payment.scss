@@ -1,0 +1,11 @@
+.checkoutContainer{
+    display: flex;
+    .mainInfo{
+        flex-basis: 75%;
+        flex-grow: 0;
+    }
+    .asideInfo{
+        flex-basis: 25%;
+        flex-grow: 0;
+    }
+}

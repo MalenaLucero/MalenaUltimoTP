@@ -42,12 +42,12 @@ const ItemContent = ({data}) =>{
                 <div className={'segmentsData'}>
                     <p className={'duration'}>{FlightDurationConverter(duration)}</p>
                     <ul className={'segmentsDots'}>
-                        {segments.map(i=><li key={i}>o</li>)}
-                        <li>o</li>
+                        {segments.map((s,i)=><li key={i}>o</li>)}
+                        <li key={segments.length}>o</li>
                     </ul>
                     <ul className={'segmentsList'}>
                         {segments.map((s,i)=><li key={i}>{s.departure.iataCode}</li>)}
-                        <li>{segments[segments.length-1].arrival.iataCode}</li>
+                        <li key={segments.length}>{segments[segments.length-1].arrival.iataCode}</li>
                     </ul>
                 </div>
                 <CityAndDate
