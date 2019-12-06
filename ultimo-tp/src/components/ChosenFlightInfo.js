@@ -44,7 +44,7 @@ const ChosenFlightInfo = ({flight}) =>{
                     <img src={`https://content.airhex.com/content/logos/airlines_${carrierCode}_200_200_s.png`}/>
                 </div>
             </div>
-            <a href={'index.html'}>Flight details</a>
+            <a className={'flightDetailsBtn'} href={'index.html'}>Flight details</a>
         </React.Fragment>
     )
 }

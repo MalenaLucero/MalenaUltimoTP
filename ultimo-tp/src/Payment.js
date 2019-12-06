@@ -2,6 +2,8 @@ import React, {useState, useEffect} from 'react'
 import FetchData from './helpers/FetchData'
 import ChosenFlightInfo from './components/ChosenFlightInfo'
 import './Payment.scss'
+import BookingSummary from './components/BookingSummary'
+import Charges from './components/Charges'
 
 const Payment = ({match}) =>{
     const {flight, id} = match.params
@@ -25,16 +27,22 @@ const Payment = ({match}) =>{
                 <div className={'mainInfo'}>
                     {isLoading ? <p>Loading...</p> : null}
                     {showResults ? <ChosenFlightInfo flight={chosenFlight}/> : null}
+                    <div>
+                        <h3>Enter Passenger Details</h3>
+                    </div>
+                    <div>
+                        <h3>Enter Billing Information</h3>
+                    </div>
+                    <button>Book now</button>
                 </div>
                 <div className={'asideInfo'}>
-                    <div>
-                        <h3>Booking Summary</h3>
-                    </div>
-                    <div>
-                        <h3>Charges</h3>
-                    </div>
+                    {showResults ? <BookingSummary className={'bookingSummary'} flight={chosenFlight}/> : null}
+                    {showResults ? <Charges className={'charges'} flight={chosenFlight}/> : null}
                 </div>
             </div>
+            <footer>
+                Fly high
+            </footer>
         </div>
     )
 }
