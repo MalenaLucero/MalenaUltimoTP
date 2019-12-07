@@ -4,9 +4,29 @@
     @include main-container;
     display: flex;
     flex-direction: column;
-    align-content: space-between;
-    .homeTitle{
-        color: $main-color;
-        font-weight: normal;
+    justify-content: space-around;
+    color: $main-color;
+    font-size: $medium-font-size;
+    min-height: 87vh;
+    .homeTitleAndSubtitle{
+        margin-top: 40px;
+        .homeTitle{
+            font-weight: normal;
+            font-size: $big-font-size;
+            margin: 0;
+        }
+        .homeSubtitle{
+            font-weight: normal;
+            margin: 0;
+        }
+    }
+    .homeFooter{
+        color: $secondary-color;
+        .copyright{
+            font-size: $small-font-size;
+            .pageCreator{
+                color: $secondary-color;
+            }
+        }
     }
 }

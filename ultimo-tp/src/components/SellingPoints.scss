@@ -1,3 +1,5 @@
+@import '../shared.scss';
+
 .sellingPointsContainer{
     //margin: 50px 0;
     display: flex;
@@ -5,8 +7,14 @@
     .sellingPoint{
         flex-basis: 20%;
         flex-grow: 0;
-        p{
-            text-justify: justify;
+        .pointTitle{
+            font-weight: normal;
+        }
+        .pointDescription{
+            color: $secondary-color;
+            text-align: justify;
+            font-size: $small-font-size;
         }
     }
 }
+

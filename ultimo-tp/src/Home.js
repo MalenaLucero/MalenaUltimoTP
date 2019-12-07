@@ -9,17 +9,21 @@ import './Home.scss'
 
 const Home = () => {
 	return (
-		<div className={'homeContainer'}>
+		<React.Fragment>
 			<div className={'darkenBackground'}></div>
-			<h1 className={'homeTitle'}>Cheap flights best deals</h1>
-			<h4 >Search hundreds of travel sites at once</h4>
-			<MainInput/>
-			<SellingPoints/>
-			<footer className={'homeFooter'}>
-				<ContactNav/>
-				<p>Copyright © <a href={'index.html'}>Malena Lucero</a> 2019. All rights reserved.</p>
-			</footer>
-		</div>
+			<div className={'homeContainer'}>
+				<div className={'homeTitleAndSubtitle'}>
+					<h1 className={'homeTitle'}>Cheap flights best deals</h1>
+					<h4 className={'homeSubtitle'}>Search hundreds of travel sites at once</h4>
+				</div>
+				<MainInput/>
+				<SellingPoints/>
+				<footer className={'homeFooter'}>
+					<ContactNav/>
+					<p className={'copyright'}>Copyright © <a href={'index.html'} className={'pageCreator'}>Malena Lucero</a> 2019. All rights reserved.</p>
+				</footer>
+			</div>
+		</React.Fragment>
 	)
 }
 

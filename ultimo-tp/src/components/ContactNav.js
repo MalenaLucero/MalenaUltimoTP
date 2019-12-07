@@ -1,5 +1,10 @@
 import React from 'react'
 import './ContactNav.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faFacebook } from '@fortawesome/free-brands-svg-icons'
+import { faTwitter } from '@fortawesome/free-brands-svg-icons'
+import { faGoogle } from '@fortawesome/free-brands-svg-icons'
+import { faInstagram } from '@fortawesome/free-brands-svg-icons'
 
 const ContactNav = () =>{
     const footerNav = [
@@ -11,12 +16,6 @@ const ContactNav = () =>{
         {title: 'About us', href:'index.html'},
         {title: 'Contact', href:'index.html'}
     ]
-    const socialMedia = [
-        {title: 'F', href:'index.html'},
-        {title: 'T', href:'index.html'},
-        {title: 'G', href:'index.html'},
-        {title: 'I', href:'index.html'}
-    ]
 
     return(
         <div className={'contactNavContainer'}>
@@ -24,7 +23,10 @@ const ContactNav = () =>{
                 {footerNav.map((f,i)=><a key={i} href={f.href}>{f.title}</a>)}
             </ul>
             <ul className={'socialMedia'}>
-                {socialMedia.map((s,i)=><a key={i} href={s.href}>{s.title}</a>)}
+                <a href={"index.html"}><FontAwesomeIcon icon={faFacebook}/></a> 
+                <a href={"index.html"}><FontAwesomeIcon icon={faTwitter}/></a>
+                <a href={"index.html"}><FontAwesomeIcon icon={faGoogle}/></a>
+                <a href={"index.html"}><FontAwesomeIcon icon={faInstagram}/></a>
             </ul>
         </div>
     )

@@ -1,12 +1,14 @@
 import React from 'react'
 import './SellingPoints.scss'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheck } from '@fortawesome/free-solid-svg-icons'
 
 const PointDetails = ({point}) =>{
     return(
         <div className={'sellingPoint'}>
-            <span>Tick</span>
-            <h4>{point.title}</h4>
-            <p>{point.description}</p>
+            <FontAwesomeIcon icon={faCheck}/>
+            <h4 className={'pointTitle'}>{point.title}</h4>
+            <p className={'pointDescription'}>{point.description}</p>
         </div>
     )
 }

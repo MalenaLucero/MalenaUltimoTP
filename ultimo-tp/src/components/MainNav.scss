@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: row;
     border-bottom: 1px solid $main-color;
-    height: 60px;
+    height: 12vh;
    .pageTitle{
         margin: auto 15px;
         margin: 0;
@@ -13,6 +13,7 @@
         .pageTitleContent{
             color: $main-color;
             text-decoration: none;
+            font-weight: normal;
         }
     }
     ul{
@@ -24,10 +25,11 @@
         }
         li{
             display: inline;
-            margin: 0 15px;
+            margin-left: 10px;
             a{ 
                text-decoration: none;
                color: $secondary-color;
+               font-size: $small-font-size;
                &:hover{
                    color: $main-color;
                }
