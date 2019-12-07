@@ -1,9 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import FetchData from './helpers/FetchData'
 import ChosenFlightInfo from './components/ChosenFlightInfo'
-import './Payment.scss'
 import BookingSummary from './components/BookingSummary'
 import Charges from './components/Charges'
+//styles
+import '../src/shared.scss'
+import './Payment.scss'
 
 const Payment = ({match}) =>{
     const {flight, id} = match.params
@@ -11,7 +13,7 @@ const Payment = ({match}) =>{
     const [ isLoading, toggleLoading ] = useState(false)
     const [ showResults, setShowResults] = useState(false)
     console.log(chosenFlight)
-    useEffect(() => {
+    /*useEffect(() => {
 		async function getTrip() {
             toggleLoading(true)
             let response = await FetchData(JSON.parse(atob(flight)))
@@ -20,7 +22,7 @@ const Payment = ({match}) =>{
             setShowResults(true)
 		}
 		getTrip()
-	}, [])
+	}, [])*/
     return(
         <div>
             <div className={'checkoutContainer'}>

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import FetchData from './helpers/FetchData'
 import ResultItem from './components/ResultItem'
+//styles
+import '../src/shared.scss'
 import './Results.scss'
 
 const Results = ({match}) =>{

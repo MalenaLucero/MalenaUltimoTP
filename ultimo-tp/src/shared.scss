@@ -1,0 +1,40 @@
+//font
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500&amp;subset=cyrillic");
+$main-font: 'Roboto', sans-serif;
+
+//color
+$main-color: #faf7f0;
+$secondary-color: #c4c1b7;
+
+//containers
+@mixin main-container{
+    margin: 0 100px;
+}
+
+@mixin main-hover{
+    color: $secondary-color;
+}
+
+body{
+    position: relative;
+    margin: 0;
+    font-family: $main-font;
+    background-image: url('./images/plate-flight-sky-sunset_1500x801.jpeg');
+    background-repeat: no-repeat;
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-color: grey;
+    .darkenBackground{
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0,0,0,0.3);
+        z-index: -1;
+        top: 0;
+        left: 0;
+    }
+    #root{
+        height: 100%;
+    }
+}

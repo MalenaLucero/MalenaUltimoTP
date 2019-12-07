@@ -1,0 +1,12 @@
+@import 'shared.scss';
+
+.homeContainer{
+    @include main-container;
+    display: flex;
+    flex-direction: column;
+    align-content: space-between;
+    .homeTitle{
+        color: $main-color;
+        font-weight: normal;
+    }
+}

@@ -2,10 +2,11 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import './MainNav.scss'
 
+
 const MainNav = () =>{
     return(
         <nav className={'navContainer'}>
-            <h1 className={'pageTitle'}><Link to={'/'}>Fly high!</Link></h1>
+            <h1 className={'pageTitle'}><Link to={'/'} className={'pageTitleContent'}>Fly high!</Link></h1>
             <ul className={'mainNav'}>
                 <li><a href={'index.html'}>Hotels</a></li>
                 <li><a href={'index.html'}>Rooms</a></li>
