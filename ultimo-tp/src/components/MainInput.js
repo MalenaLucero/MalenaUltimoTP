@@ -2,6 +2,7 @@ import React from 'react'
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 import {useHistory} from 'react-router-dom'
 import FlightModel from '../helpers/FlightModel'
+import './MainInput.scss'
 
 const MainInput = () =>{
     let history = useHistory()
@@ -14,18 +15,21 @@ const MainInput = () =>{
             onSubmit={values => {
                 redirectFunction(values)}}
         >
-            <Form>
-                <Field name="iataOrigin" type="text" placeholder="Origin"/>
-                <Field name="iataDest" type="text" placeholder="Destination"/>
-                <Field name="fromDate" type="text" placeholder="From"/>
-                <Field name="toDate" type="text" placeholder="To"/>
-                <Field name="adults" type="text" placeholder="Adults"/>
-                
-                <label htmlFor={'roundTrip'}>Round trip</label>
-                <Field id={'roundTrip'} name="oneWay" type="radio" value="false"/>
-                <label htmlFor={'oneWay'}>One way</label>
-                <Field id={'oneWay'} name="oneWay" type="radio" value="true"/>
-                <button type="submit">Conf</button>
+            <Form className={'mainForm'}>
+                <div className={'mainFormFields'}>
+                    <Field name="iataOrigin" type="text" placeholder="Origin"/>
+                    <Field name="iataDest" type="text" placeholder="Destination"/>
+                    <Field name="fromDate" type="text" placeholder="From"/>
+                    <Field name="toDate" type="text" placeholder="To"/>
+                    <Field name="adults" type="text" placeholder="Adults"/>
+                </div>
+                <div className={'radioButtons'}>
+                    <label htmlFor={'roundTrip'}>Round trip</label>
+                    <Field id={'roundTrip'} name="oneWay" type="radio" value="false"/>
+                    <label htmlFor={'oneWay'}>One way</label>
+                    <Field id={'oneWay'} name="oneWay" type="radio" value="true"/>
+                </div>    
+                <button className={'mainFormButton'} type="submit">Search</button> 
             </Form>
         </Formik>
     )

@@ -8,8 +8,14 @@
     color: $main-color;
     font-size: $medium-font-size;
     min-height: 87vh;
+    @media(max-width: $small-break){
+        margin: 0;
+    }
     .homeTitleAndSubtitle{
-        margin-top: 40px;
+        margin: 40px 0 20px;
+        @media(max-width: $small-break){
+            align-self: center;
+        }
         .homeTitle{
             font-weight: normal;
             font-size: $big-font-size;
@@ -22,8 +28,15 @@
     }
     .homeFooter{
         color: $secondary-color;
+        @media(max-width: $small-break){
+            background-color: $mobile-menu-color;
+            padding: 10px;
+        }
         .copyright{
             font-size: $small-font-size;
+            @media(max-width: $small-break){
+                text-align: center;
+            }
             .pageCreator{
                 color: $secondary-color;
             }

@@ -1,9 +1,12 @@
 @import '../shared.scss';
 
 .sellingPointsContainer{
-    //margin: 50px 0;
     display: flex;
     justify-content: space-between;
+    @media(max-width: $small-break){
+        flex-direction: column;
+        margin: 20px;
+    }
     .sellingPoint{
         flex-basis: 20%;
         flex-grow: 0;

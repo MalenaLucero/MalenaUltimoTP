@@ -9,10 +9,13 @@ $big-font-size: 28px;
 
 //screen breaks
 $medium-break: 800px;
+$small-break: 500px;
 
 //color
 $main-color: #faf7f0;
 $secondary-color: #808080;
+$mobile-menu-color: #3d3d3d;
+$contrastive-color: #fc5a03;
 
 //containers
 @mixin main-container{
@@ -27,6 +30,7 @@ $secondary-color: #808080;
 }
 
 body{
+    box-sizing: border-box;
     position: relative;
     margin: 0;
     font-family: $main-font;
