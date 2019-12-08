@@ -1,12 +1,14 @@
 @import 'shared.scss';
 
 .checkoutContainer{
-    @include main-container;
+    @include main-container-padding;
     display: flex;
-    margin-top: 50px;
+    background-color: white;
+    padding-top: 50px;
     .mainInfo{
         flex-basis: 65%;
         flex-grow: 0;
+        
     }
     .asideInfo{
         flex-basis: 30%;

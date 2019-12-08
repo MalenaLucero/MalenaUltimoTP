@@ -50,7 +50,7 @@ const PaymentFooter = () =>{
                 <div className={'newsletter'}>
                     <h4>Save up to 50% off your next trip</h4>
                     <p>Suscribe to unlock our secret deals</p>
-                    <input type={'text'}/>
+                    <input type={'text'} placeholder={'Type your e-mail here'}/>
                     <button>GET DEALS</button>
                 </div>
             </div>

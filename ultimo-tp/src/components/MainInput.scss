@@ -14,18 +14,18 @@
             padding: 20px 0;
             color: $main-color;
             &:first-of-type{
-                border-top-left-radius: 5px;
-                border-bottom-left-radius: 5px;
+                border-top-left-radius: $input-border-radius;
+                border-bottom-left-radius: $input-border-radius;
             }
             &:last-of-type{
-                border-top-right-radius: 5px;
-                border-bottom-right-radius: 5px;
+                border-top-right-radius: $input-border-radius;
+                border-bottom-right-radius: $input-border-radius;
             }
             @media(max-width: $small-break){
                 display: block;  
                 width: 100%;
                 margin-bottom: 10px;
-                border-radius: 5px;
+                border-radius: $input-border-radius;
             }
         }
         
