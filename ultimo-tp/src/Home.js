@@ -1,4 +1,5 @@
 import React from 'react'
+import MainNav from './components/MainNav'
 import MainInput from './components/MainInput'
 import SellingPoints from './components/SellingPoints'
 import ContactNav from './components/ContactNav'
@@ -9,9 +10,10 @@ import './Home.scss'
 
 const Home = () => {
 	return (
-		<React.Fragment>
+		<div className={'homeContainer'}>
 			<div className={'darkenBackground'}></div>
-			<div className={'homeContainer'}>
+			<MainNav className={'transparent'}/>
+			<div className={'homeMainContainer'}>
 				<div className={'homeTitleAndSubtitle'}>
 					<h1 className={'homeTitle'}>Cheap flights best deals</h1>
 					<h4 className={'homeSubtitle'}>Search hundreds of travel sites at once</h4>
@@ -23,7 +25,7 @@ const Home = () => {
 					<p className={'copyright'}>Copyright © <a href={'index.html'} className={'pageCreator'}>Malena Lucero</a> 2019. All rights reserved.</p>
 				</footer>
 			</div>
-		</React.Fragment>
+		</div>
 	)
 }
 

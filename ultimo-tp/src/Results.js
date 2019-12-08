@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import FetchData from './helpers/FetchData'
+import MainNav from './components/MainNav'
 import ResultItem from './components/ResultItem'
 //styles
 import '../src/shared.scss'
@@ -23,24 +24,31 @@ const Results = ({match}) =>{
 		getTrip()
 	}, [])
     return(
-        <div className={'resultsContainer'}>
-            <div className={'filters'}>Filters</div>
-            <div className={'results'}>
-               <nav>
-                <span>Sort by:</span>
-                <button >Price</button>
-                <button >Duration</button>
-                <button >Recommended</button>
-                <button >Airline</button>
-                </nav>
-                <div>
-                    {isLoading ? <p>Loading...</p> : null}
-                    <ul>{showResults && flights.length !== 0 ? flights.map((f,i)=><ResultItem key={i} flight={f} flightSearch={flightSearch}/>) : null}</ul>
-                    {showResults && flights.length === 0 ? <p>No flights were found</p> : null}  
+        <React.Fragment>
+            <header className={'resultsHeader'}>
+                <div className={'darkenBackground'}></div>
+               <MainNav className={'transparent'}/> 
+            </header>
+            <main className={'resultsContainer'}>
+                <div className={'filters'}>Filters</div>
+                <div className={'results'}>
+                <nav>
+                    <span>Sort by:</span>
+                    <button >Price</button>
+                    <button >Duration</button>
+                    <button >Recommended</button>
+                    <button >Airline</button>
+                    </nav>
+                    <div>
+                        {isLoading ? <p>Loading...</p> : null}
+                        <ul>{showResults && flights.length !== 0 ? flights.map((f,i)=><ResultItem key={i} flight={f} flightSearch={flightSearch}/>) : null}</ul>
+                        {showResults && flights.length === 0 ? <p>No flights were found</p> : null}  
+                    </div>
                 </div>
-            </div>
-            <div className={'advertisements'}>Adverts</div>
-        </div>
+                <div className={'advertisements'}>Adverts</div>
+            </main>
+        </React.Fragment>
+        
     )
 }
 

@@ -1,6 +1,19 @@
 @import 'shared.scss';
 
 .homeContainer{
+    position: relative;
+    background-image: url('./images/plate-flight-sky-sunset_1500x801.jpeg');
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: black;
+    .darkenBackground{
+        height: 100vh;
+    }
+}
+
+.homeMainContainer{
     @include main-container;
     display: flex;
     flex-direction: column;
@@ -8,17 +21,19 @@
     color: $main-color;
     font-size: $medium-font-size;
     min-height: 87vh;
+    z-index: 999;
     @media(max-width: $small-break){
         margin: 0;
     }
     .homeTitleAndSubtitle{
         margin: 40px 0 20px;
+        z-index: 999;
         @media(max-width: $small-break){
             align-self: center;
         }
         .homeTitle{
             font-weight: normal;
-            font-size: $big-font-size;
+            font-size: $very-big-font-size;
             margin: 0;
         }
         .homeSubtitle{
@@ -28,12 +43,13 @@
     }
     .homeFooter{
         color: $secondary-color;
+        z-index: 999;
         @media(max-width: $small-break){
             background-color: $mobile-menu-color;
             padding: 10px;
         }
         .copyright{
-            font-size: $small-font-size;
+            font-size: $very-small-font-size;
             @media(max-width: $small-break){
                 text-align: center;
             }

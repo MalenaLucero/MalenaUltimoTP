@@ -3,9 +3,11 @@
 $main-font: 'Roboto', sans-serif;
 
 //font-size
-$small-font-size: 12px;
-$medium-font-size: 14px;
+$very-small-font-size: 12px;
+$small-font-size: 14px;
+$medium-font-size: 16px;
 $big-font-size: 28px;
+$very-big-font-size: 36px;
 
 //screen breaks
 $medium-break: 800px;
@@ -31,25 +33,27 @@ $contrastive-color: #fc5a03;
 
 body{
     box-sizing: border-box;
-    position: relative;
     margin: 0;
     font-family: $main-font;
-    background-image: url('./images/plate-flight-sky-sunset_1500x801.jpeg');
-    height: 100vh;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    background-color: black;
-    .darkenBackground{
-        position: fixed;
-        width: 100vw;
-        height: 100vh;
-        background-color: rgba(0,0,0,0.5);
-        z-index: -1;
-        top: 0;
-        left: 0;
-    }
     #root{
         height: 100%;
     }
+}
+
+//div in position absolute to darken background images
+.darkenBackground{
+    position: absolute;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+//hide or show an element
+.show{
+    display: block;
+}
+.hide{
+    display: none;
 }

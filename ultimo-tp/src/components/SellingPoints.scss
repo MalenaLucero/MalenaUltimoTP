@@ -3,6 +3,7 @@
 .sellingPointsContainer{
     display: flex;
     justify-content: space-between;
+    z-index: 999;
     @media(max-width: $small-break){
         flex-direction: column;
         margin: 20px;

@@ -17,6 +17,7 @@
         margin: auto 15px;
         margin: 0;
         align-self: center;
+        z-index: 999;
         .pageTitleContent{
             color: $main-color;
             text-decoration: none;
@@ -32,6 +33,7 @@
     .dropdown{
         display: flex;
         width: 100%;
+        z-index: 999;
         @media (max-width: $small-break){
             position: absolute;
             background-color: $mobile-menu-color;
@@ -52,35 +54,28 @@
         &.optionsNav{
             margin-left: auto;
         }
-        li{
-            display: inline;
-            margin-left: 10px;
-            @media (max-width: $small-break){
-                display: block;
-                border-top: 1px solid $secondary-color;
-                padding: 20px 0;
-                margin: 0 20px;
-                font-size: $medium-font-size;
+            li{
+                display: inline;
+                margin-left: 10px;
+                @media (max-width: $small-break){
+                    display: block;
+                    border-top: 1px solid $secondary-color;
+                    padding: 20px 0;
+                    margin: 0 20px;
+                    font-size: $medium-font-size;
+                }
+                    a{ 
+                    text-decoration: none;
+                    color: $secondary-color;
+                    font-size: $small-font-size;
+                    &:hover{
+                        color: $main-color;
+                    }
+                }  
             }
-            a{ 
-               text-decoration: none;
-               color: $secondary-color;
-               font-size: $small-font-size;
-               &:hover{
-                   color: $main-color;
-               }
-            }  
-        }
-    } 
+        } 
     }
-    
 }
 
-.show{
-    display: block;
-}
 
-.hide{
-    display: none;
-}
 

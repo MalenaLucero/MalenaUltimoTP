@@ -1,3 +1,18 @@
+@import 'shared.scss';
+
+.resultsHeader{
+    background-image: url('./images/big-ben-bridge-castle-city-460672_1500x800.jpg');
+    height: 20vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-color: black;
+    .darkenBackground{
+        height: 20vh;
+        
+    }
+}
+
 .resultsContainer{
     display: flex;
     background-color: lightgrey;
