@@ -1,0 +1,32 @@
+@import '../shared.scss';
+
+.charges{
+    .chargeTitle{
+        margin-top: 0;
+        font-size: $medium-font-size;
+    }
+    .chargeDetail, .chargeTotal{
+        display: flex;
+        padding-bottom: 10px;
+        &:last-of-type{
+            border-top: 1px solid $secondary-color;
+            padding-top: 10px;
+        }
+        p{
+            margin: 0;
+            color: $secondary-color;
+            font-size: $small-font-size;
+            &.chargeTotalTitle{
+                color: black;
+                font-weight: bold;
+            }
+            &.chargeAmount{
+                margin-left: auto;
+                align-self: center;
+                color: black;
+                font-weight: bold;
+            }
+        }
+    }
+}
+

@@ -1,5 +1,6 @@
 import React from 'react'
 import dateConverter from '../helpers/dateConverter'
+import './BookingSummary.scss'
 
 const BookingSummary = ({className, flight}) =>{
     const {itineraries, oneWay, travelerPricings} = flight
@@ -9,7 +10,7 @@ const BookingSummary = ({className, flight}) =>{
     const returnDate = itineraries[1].segments[0].departure.at
     return(
         <div className={className}>
-            <h3>Booking Summary</h3>
+            <h3 className={'bookingSummaryTitle'}>Booking Summary</h3>
             <p>{`${isOneWay}, ECONOMY, ${passengers}`}</p>
             <div>
                 <p>Depart: {dateConverter(departureDate)}</p>

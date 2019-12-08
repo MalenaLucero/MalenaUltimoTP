@@ -1,4 +1,5 @@
 import React from 'react'
+import './Charges.scss'
 
 const Charges = ({className, flight}) =>{
     const {price, travelerPricings} = flight
@@ -7,7 +8,7 @@ const Charges = ({className, flight}) =>{
     const totalAmount = price.grandTotal
     return(
         <div className={className}>
-            <h3>Charges</h3>
+            <h3 className={'chargeTitle'}>Charges</h3>
             <div className={'chargeDetail'}>
                 <div>
                     <p>{`${passengers}`}</p>
@@ -16,7 +17,7 @@ const Charges = ({className, flight}) =>{
                 <p className={'chargeAmount'}>{`$${passengersAmount}`}</p>
             </div>
             <div className={'chargeTotal'}>
-                <p>Total</p>
+                <p className={'chargeTotalTitle'}>Total</p>
                 <p className={'chargeAmount'}>{`$${totalAmount}`}</p>
             </div>
         </div>

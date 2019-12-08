@@ -48,14 +48,5 @@
             background-color: $mobile-menu-color;
             padding: 10px;
         }
-        .copyright{
-            font-size: $very-small-font-size;
-            @media(max-width: $small-break){
-                text-align: center;
-            }
-            .pageCreator{
-                color: $secondary-color;
-            }
-        }
     }
 }

@@ -33,7 +33,7 @@ const ChosenFlightInfo = ({flight}) =>{
         <React.Fragment>
             <div className={'chosenFlight'}>
                 <div className={'chosenFlightDetails'}>
-                    <h2>{`${departureCity} --> ${arrivalCity}`}</h2>
+                    <h2 className={'chosenFlightCities'}>{`${departureCity} → ${arrivalCity}`}</h2>
                     <p>{`${isOneWay}, ECONOMY, ${passengers}`}</p>
                     <div>
                         <p>Depart: {dateConverter(departureDate)}</p>

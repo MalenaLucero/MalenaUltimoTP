@@ -9,10 +9,10 @@ import { faBars } from '@fortawesome/free-solid-svg-icons'
 const MainNav = ({className}) =>{
     const [mobileMenu, toggleMobileMenu] = useState(false)
     return(
-        <nav className={'navContainer'}>
+        <nav className={className === 'transparent' ? 'navContainer transparent' : 'navContainer normal'}>
             <h1 className={'pageTitle'}><Link to={'/'} className={'pageTitleContent'}>Fly high!</Link></h1>
             <a
-                className={window.innerWidth < mobileBreakpoint() ? 'menuIcon show' : 'menuIcon hide'}
+                className={window.innerWidth < mobileBreakpoint ? 'menuIcon show' : 'menuIcon hide'}
                 href={'#'}><FontAwesomeIcon icon={faBars}
                 onClick={()=>toggleMobileMenu(!mobileMenu)}
             /></a>

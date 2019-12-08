@@ -32,18 +32,8 @@
         &.socialMedia{
             margin-left: auto;
             @media(max-width: $small-break){
-                width: 100px;
+                max-width: 100px;
                 margin: auto;
-            }
-            a{
-                margin-left: 20px;
-                color: $main-color;
-                @media(max-width: $small-break){
-                    margin-left: 0;
-                }
-                &:hover{
-                    color: $secondary-color;
-                }
             }
         }
     }

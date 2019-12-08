@@ -26,7 +26,14 @@ $contrastive-color: #fc5a03;
         margin: 0 20px;
     }
 }
+@mixin main-container-padding{
+    padding: 0 100px;
+    @media (max-width: $medium-break){
+        padding: 0 20px;
+    }
+}
 
+//hovers
 @mixin main-hover{
     color: $secondary-color;
 }
@@ -35,6 +42,7 @@ body{
     box-sizing: border-box;
     margin: 0;
     font-family: $main-font;
+    font-size: $medium-font-size;
     #root{
         height: 100%;
     }
@@ -48,6 +56,34 @@ body{
     top: 0;
     left: 0;
     z-index: 1;
+}
+
+//footer elements
+.copyright{
+    font-size: $very-small-font-size;
+    @media(max-width: $small-break){
+        text-align: center;
+    }
+    .pageCreator{
+        color: $secondary-color;
+    }
+}
+.socialMedia{
+    @media(max-width:$small-break){
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+    a{
+        margin-left: 20px;
+        color: $main-color;
+        @media(max-width: $small-break){
+            margin-left: 0;
+        }
+        &:hover{
+            color: $secondary-color;
+        }
+    }
 }
 
 //hide or show an element

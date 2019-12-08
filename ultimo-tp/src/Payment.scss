@@ -1,32 +1,21 @@
+@import 'shared.scss';
+
 .checkoutContainer{
+    @include main-container;
     display: flex;
+    margin-top: 50px;
     .mainInfo{
-        flex-basis: 70%;
+        flex-basis: 65%;
         flex-grow: 0;
     }
     .asideInfo{
         flex-basis: 30%;
         flex-grow: 0;
+        margin-left: auto;
         .bookingSummary, .charges{
-            border: 1px solid grey;
+            border: 1px solid $secondary-color;
             padding: 20px;
-            h3{
-                margin: 0;
-            }
-            .chargeDetail, .chargeTotal{
-                display: flex;
-                padding: 10px 0;
-                &:last-of-type{
-                    border-top: 1px solid grey;
-                }
-                p{
-                    margin: 0;
-                    &.chargeAmount{
-                        margin-left: auto;
-                        align-self: center;
-                    }
-                }
-            }
+            margin-bottom: 20px;
         }
     }
 }

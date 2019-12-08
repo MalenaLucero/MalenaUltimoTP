@@ -1,0 +1,12 @@
+@import '../shared.scss';
+
+.bookingSummary{
+    .bookingSummaryTitle{
+        margin: 0;
+        font-size: $medium-font-size;
+    } 
+    p{
+        color: $secondary-color;
+        font-size: $small-font-size;
+    }
+}

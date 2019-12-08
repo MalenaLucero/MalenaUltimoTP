@@ -1,0 +1,50 @@
+@import '../shared.scss';
+
+.paymentFooter{
+    .paymentFooterTop{
+        @include main-container-padding;
+        display: flex;
+        background-color: $main-color;
+        border-top: 1px solid $secondary-color;
+        .about{
+            flex-basis: 25%;
+            flex-grow: 0;
+        }
+        .footerLinks{
+            flex-basis: 50%;
+            flex-grow: 0;
+            display: flex;
+            justify-content: space-around;
+            font-size: $small-font-size;
+            ul{
+                align-self: center;
+            }
+            a{
+                color: $secondary-color;
+                text-decoration: none;
+            }
+        }
+        .newsletter{
+            flex-basis: 25%;
+            flex-grow: 0;
+        }
+    }
+    .paymentFooterBottom{
+        @include main-container-padding;
+        background-color: $mobile-menu-color;
+        display: flex;
+        @media(max-width: $small-break){
+            flex-direction: column-reverse;
+        }
+        .socialMedia{
+            margin-left: auto;
+            @media(max-width: $small-break){
+                width: 100px;
+                margin: 20px auto 0;
+            }
+        }
+        .copyright{
+            align-self: center;
+        }
+    }
+}
