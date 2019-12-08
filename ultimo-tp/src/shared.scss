@@ -42,6 +42,15 @@ $input-border-radius: 5px;
     color: $secondary-color;
 }
 
+//buttons
+@mixin main-contrastive-button{
+    background-color: $contrastive-color;
+    border: none;
+    color: $main-color;
+    padding: 10px 20px;
+    font-size: $small-font-size;
+}
+
 body{
     box-sizing: border-box;
     margin: 0;

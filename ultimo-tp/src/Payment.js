@@ -34,11 +34,27 @@ const Payment = ({match}) =>{
                     {showResults ? <ChosenFlightInfo flight={chosenFlight}/> : null}
                     <div>
                         <h3>Enter Passenger Details</h3>
+                        <div>
+                            <h4>Passenjer 1</h4>
+                        </div>
                     </div>
                     <div>
                         <h3>Enter Billing Information</h3>
+                        <div>
+                            <h4>Billing Address</h4>
+                        </div>
+                        <div>
+                            <h4>Card details</h4>
+                        </div>
                     </div>
-                    <button>Book now</button>
+                    <div className={'paymentTotalContainer'}>
+                        <div className={'paymentTotalText'}>
+                            <h3>Total</h3>
+                            <p>By clicking "book now" you agree with the terms and conditions and money back guarantee. Thank you for trusting our service.</p>
+                        </div>
+                        {showResults ? <p className={'paymentTotalAmount'}>{`$${chosenFlight.price.grandTotal}`}</p> : null}
+                    </div>
+                    <button className={'paymentMainButton'}>Book now</button>
                 </div>
                 <div className={'asideInfo'}>
                     {showResults ? <BookingSummary className={'bookingSummary'} flight={chosenFlight}/> : null}
