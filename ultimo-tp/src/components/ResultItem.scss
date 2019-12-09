@@ -46,10 +46,16 @@ ul{
                         font-size: $very-small-font-size;
                     }
                 }
+                .toData{
+                    text-align: right;
+                }
                 .segmentsData{
                     flex-basis: 40%;
                     flex-grow: 0;
                     padding: 0 10px;
+                    min-width: 160px;
+                    max-width: 200px;
+                    margin: auto;
                     .duration{
                         display: flex;
                         justify-content: space-between;
@@ -63,13 +69,11 @@ ul{
                     .segmentsDots{
                         display: flex;
                         justify-content: space-between;
-                        padding: 10px;
-                        font-size: $big-font-size;
+                        font-size: $very-big-font-size;
                         position: relative;
                         li{
                             color: $secondary-color;
-                            z-index: 1;
-
+                            z-index: 2;
                             &:first-of-type{
                                 color: $alternative-color;
                             }
@@ -79,11 +83,28 @@ ul{
                         }
                         .segmentsLine{
                             position: absolute;
-                            width: 100%;
+                            width: 90%;
                             border: 1px solid $secondary-color;
                             z-index: 0;
+                            margin: 0 10px;
+                            top: 20px;
+                            left: 0;
+                        }
+                        .whiteDots{
+                            display: flex;
+                            justify-content: space-between;
+                            font-size: 50px;
+                            position: absolute;
+                            width: 100%;
+                            top: -9px;
+                            left: 0;
+                            li{
+                                color:white;
+                                z-index: 1;
+                            }
                         }
                     }
+                    
                     .segmentsList{
                         display: flex;
                         justify-content: space-between;

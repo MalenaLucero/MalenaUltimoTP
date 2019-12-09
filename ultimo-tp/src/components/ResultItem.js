@@ -51,8 +51,13 @@ const ItemContent = ({data}) =>{
                     <ul className={'segmentsDots'}>
                         {segments.map((s,i)=><li key={i}>•</li>)}
                         <li key={segments.length}>•</li>
-                        <hr className={'segmentsLine'}></hr>
+                        <div className={'segmentsLine'}></div>
+                        <ul className={'whiteDots'}>
+                            {segments.map((s,i)=><li key={i}>•</li>)}
+                            <li key={segments.length}>•</li>
+                        </ul>
                     </ul>
+                    
                     <ul className={'segmentsList'}>
                         {segments.map((s,i)=><li key={i}>{s.departure.iataCode}</li>)}
                         <li key={segments.length}>{segments[segments.length-1].arrival.iataCode}</li>
