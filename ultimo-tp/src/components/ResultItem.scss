@@ -1,3 +1,5 @@
+@import '../shared.scss';
+
 ul{
     list-style: none;
     padding: 0;
@@ -12,6 +14,7 @@ ul{
         flex-grow: 0;
         .itemData{
             border-bottom: 1px dotted lightgrey;
+            padding: 20px;
             &:last-child{
                 border-bottom: none;
             }
@@ -27,25 +30,72 @@ ul{
                 .fromData, .toData{
                     flex-basis: 20%;
                     flex-grow: 0;
-                    padding: 10px;
+                    padding: 0 10px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    .flightDataTime{
+                        font-weight: bold;
+                    }
+                    .flightDataCity{
+                        color: $secondary-color;
+                        font-size: $small-font-size;
+                    }
+                    .flightDataDate{
+                        color: $secondary-color;
+                        font-size: $very-small-font-size;
+                    }
                 }
                 .segmentsData{
                     flex-basis: 40%;
                     flex-grow: 0;
-                    padding: 10px;
+                    padding: 0 10px;
                     .duration{
-                        text-align: center;
+                        display: flex;
+                        justify-content: space-between;
+                        .durationDetail{
+                            margin: 0 10px;
+                        }
+                        .durationIcon{
+                            color: $secondary-color;
+                        }
                     }
                     .segmentsDots{
                         display: flex;
                         justify-content: space-between;
                         padding: 10px;
+                        font-size: $big-font-size;
+                        position: relative;
+                        li{
+                            color: $secondary-color;
+                            z-index: 1;
+
+                            &:first-of-type{
+                                color: $alternative-color;
+                            }
+                            &:last-of-type{
+                                color: $alternative-color;
+                            }
+                        }
+                        .segmentsLine{
+                            position: absolute;
+                            width: 100%;
+                            border: 1px solid $secondary-color;
+                            z-index: 0;
+                        }
                     }
                     .segmentsList{
                         display: flex;
                         justify-content: space-between;
+                        font-size: $very-small-font-size;
+                        color: $secondary-color;
                     }
                 }
+            }
+            .itemAirlineName{
+                margin-bottom: 0;
+                color: $secondary-color;
+                font-size: $very-small-font-size;
             }
         }
     }
@@ -53,5 +103,22 @@ ul{
         flex-basis: 25%;
         flex-grow: 0;
         text-align: center;
+        padding: 20px;
+        .bookingPrice{
+            font-size: $big-font-size;
+            margin:0 0 10px;
+        }
+        .bookingClass{
+            font-size: $very-small-font-size;
+            color: $secondary-color;
+            margin: 0 0 10px;
+        }
+        .bookingButton{
+            @include main-contrastive-button;
+            .bookingButtonContent{
+                color: $main-color;
+                text-decoration: none;
+            }
+        }
     }
 }

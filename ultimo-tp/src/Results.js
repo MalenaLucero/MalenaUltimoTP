@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import FetchData from './helpers/FetchData'
 import MainNav from './components/MainNav'
 import ResultItem from './components/ResultItem'
+import PaymentFooter from './components/PaymentFooter'
 //styles
 import '../src/shared.scss'
 import './Results.scss'
@@ -47,6 +48,7 @@ const Results = ({match}) =>{
                 </div>
                 <div className={'advertisements'}>Adverts</div>
             </main>
+            <PaymentFooter/>
         </React.Fragment>
         
     )

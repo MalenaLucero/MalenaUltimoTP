@@ -4,6 +4,9 @@ import FlightDurationConverter from '../helpers/FlightDurationConverter'
 import './ResultItem.scss'
 import timeConverter from '../helpers/timeConverter'
 import dateConverter from '../helpers/dateConverter'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPlaneDeparture } from '@fortawesome/free-solid-svg-icons'
+import { faPlaneArrival } from '@fortawesome/free-solid-svg-icons'
 
 const CityAndDate = ({className, iataCode, timeAndDate}) =>{
     const [cityName, setCityName] = useState('')
@@ -18,9 +21,9 @@ const CityAndDate = ({className, iataCode, timeAndDate}) =>{
     },[])
     return(
         <ul className={className}>
-            <li>{timeConverter(timeAndDate)}</li>
-            <li>{cityName}</li>
-            <li>{dateConverter(timeAndDate)}</li>
+            <li className={'flightDataTime'}>{timeConverter(timeAndDate)}</li>
+            <li className={'flightDataCity'}>{cityName}</li>
+            <li className={'flightDataDate'}>{dateConverter(timeAndDate)}</li>
         </ul>
     )
 }
@@ -40,10 +43,15 @@ const ItemContent = ({data}) =>{
                     timeAndDate={segments[0].departure.at}
                 />
                 <div className={'segmentsData'}>
-                    <p className={'duration'}>{FlightDurationConverter(duration)}</p>
+                    <div className={'duration'}>
+                        <FontAwesomeIcon className={'durationIcon'} icon={faPlaneDeparture}/>
+                        <p className={'durationDetail'}>{FlightDurationConverter(duration)}</p>
+                        <FontAwesomeIcon className={'durationIcon'} icon={faPlaneArrival}/>
+                    </div>
                     <ul className={'segmentsDots'}>
-                        {segments.map((s,i)=><li key={i}>o</li>)}
-                        <li key={segments.length}>o</li>
+                        {segments.map((s,i)=><li key={i}>•</li>)}
+                        <li key={segments.length}>•</li>
+                        <hr className={'segmentsLine'}></hr>
                     </ul>
                     <ul className={'segmentsList'}>
                         {segments.map((s,i)=><li key={i}>{s.departure.iataCode}</li>)}
@@ -56,7 +64,7 @@ const ItemContent = ({data}) =>{
                     timeAndDate={segments[segments.length-1].arrival.at}
                 />
             </div> 
-            <p>Operated by <span></span></p>
+            <p className={'itemAirlineName'}>Operated by <span>{carrierCode}</span></p>
         </div>
         
     )
@@ -68,10 +76,10 @@ const ResultItem = ({flight, flightSearch}) =>{
         <li className={'itemContainer'}>
             <div className={'itemDataContainer'}>{itineraries.map((f,i)=><ItemContent key={i} data={f}/>)}</div>
             <div className={'booking'}>
-                <p>${price.grandTotal}</p> 
-                <p>Economy</p>
-                <button>
-                    <Link to={`/payment/${btoa(JSON.stringify(flightSearch))}/${id}`}>Book now</Link>
+                <p className={'bookingPrice'}>${price.grandTotal}</p> 
+                <p className={'bookingClass'}>Economy</p>
+                <button className={'bookingButton'}>
+                    <Link className={'bookingButtonContent'} to={`/payment/${btoa(JSON.stringify(flightSearch))}/${id}`}>Book now</Link>
                 </button>
             </div>
         </li>
