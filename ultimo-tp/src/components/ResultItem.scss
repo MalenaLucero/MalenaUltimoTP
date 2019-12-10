@@ -71,37 +71,29 @@ ul{
                         justify-content: space-between;
                         font-size: $very-big-font-size;
                         position: relative;
+                        margin: 10px 0;
                         li{
-                            color: $secondary-color;
                             z-index: 2;
+                            width: 10px;
+                            height: 10px;
+                            border-radius: 50px;
+                            background-color: $secondary-color;
+                            border: 5px solid white;
                             &:first-of-type{
-                                color: $alternative-color;
+                                background-color: $alternative-color;
                             }
                             &:last-of-type{
-                                color: $alternative-color;
+                                background-color: $alternative-color;
                             }
                         }
                         .segmentsLine{
                             position: absolute;
-                            width: 90%;
-                            border: 1px solid $secondary-color;
-                            z-index: 0;
-                            margin: 0 10px;
-                            top: 20px;
-                            left: 0;
-                        }
-                        .whiteDots{
-                            display: flex;
-                            justify-content: space-between;
-                            font-size: 50px;
-                            position: absolute;
                             width: 100%;
-                            top: -9px;
+                            height: 2px;
+                            z-index: 0;
+                            top: 9px;
                             left: 0;
-                            li{
-                                color:white;
-                                z-index: 1;
-                            }
+                            background-color: $secondary-color;
                         }
                     }
                     
