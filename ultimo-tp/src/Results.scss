@@ -24,4 +24,10 @@
         flex-basis: 70%;
         flex-grow: 0;
     }
+    .showMoreButton{
+        @include main-contrastive-button;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+    }
 }

@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import FetchData from './helpers/FetchData'
 import MainNav from './components/MainNav'
 import ResultItem from './components/ResultItem'
 import PaymentFooter from './components/PaymentFooter'
+//helpers
+import FetchData from './helpers/FetchData'
+import flightsSlicer from './helpers/flightsSlicer'
 //styles
 import '../src/shared.scss'
 import './Results.scss'
@@ -13,6 +15,9 @@ const Results = ({match}) =>{
     const [ isLoading, toggleLoading ] = useState(false)
     const [ showResults, setShowResults] = useState(false)
     const [ flights, setFlights ] = useState([ '' ])
+    const [ flightsNumber, setFlightsNumber] = useState(5)
+    let flightsToShow = flightsSlicer(flights, flightsNumber)
+    console.log(flightsNumber)
     useEffect(() => {
 		async function getTrip() {
             toggleLoading(true)
@@ -35,15 +40,20 @@ const Results = ({match}) =>{
                 <div className={'results'}>
                 <nav>
                     <span>Sort by:</span>
-                    <button >Price</button>
-                    <button >Duration</button>
-                    <button >Recommended</button>
-                    <button >Airline</button>
+                    <a href={'#'}>Price</a>
+                    <a href={'#'}>Duration</a>
+                    <a href={'#'}>Recommended</a>
+                    <a href={'#'}>Airline</a>
                     </nav>
                     <div>
                         {isLoading ? <p>Loading...</p> : null}
-                        <ul>{showResults && flights.length !== 0 ? flights.map((f,i)=><ResultItem key={i} flight={f} flightSearch={flightSearch}/>) : null}</ul>
+                        <ul>{showResults && flights.length !== 0 ? flightsToShow.map((f,i)=><ResultItem key={i} flight={f} flightSearch={flightSearch}/>) : null}</ul>
                         {showResults && flights.length === 0 ? <p>No flights were found</p> : null}  
+                        <a className={'showMoreButton'} onClick={(e)=>{
+                            e.preventDefault()
+                            let number = flightsNumber + 5
+                            setFlightsNumber(number)
+                        }}href={'#'}>SHOW MORE</a>
                     </div>
                 </div>
                 <div className={'advertisements'}>Adverts</div>
