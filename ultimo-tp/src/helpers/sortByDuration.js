@@ -1,31 +1,10 @@
 //rearranges the array so that the fights with less duration come first
 //the comparison is made in total minutes
 
-const durationConverter = (PTtime) =>{
-    let time = PTtime.slice(2)
-    let hours, minutes
-
-    for(let i=0; i<3; i++){
-        if(time.charAt(i)==='H'){
-            hours = time.slice(0,i+1).slice(0,-1)
-            minutes = time.slice(i+1).slice(0,-1)
-        }else if(time.charAt(i)==='M'){
-            minutes = time.slice(0,i+1).slice(0,-1)
-        }
-    }
-
-    if(minutes && hours){
-        return parseInt(hours,10) * 60 + parseInt(minutes,10)
-    }else if(hours){
-        return parseInt(hours,10) * 60
-    }else{
-        return parseInt(minutes,10)
-    }
-}
+import durationConverter from './durationConverter'
 
 const sortByDuration = (flights) =>{
     let newArray = []
-
     flights.forEach((flight,index)=>{
         if(index === 0){
             newArray.push(flight)
@@ -33,10 +12,20 @@ const sortByDuration = (flights) =>{
             newArray.unshift(flight)
         }else if(durationConverter(flight.itineraries[0].duration) >= durationConverter(newArray[newArray.length-1].itineraries[0].duration)){
             newArray.push(flight)
+        }else{
+            let isFlightPushed = false
+            newArray.forEach((f,i)=>{
+                if(isFlightPushed === false && durationConverter(flight.itineraries[0].duration) < durationConverter(f.itineraries[0].duration)){
+                    newArray.splice(i,0,flight)
+                    isFlightPushed = true
+                }else if(isFlightPushed === false && durationConverter(flight.itineraries[0].duration) == durationConverter(f.itineraries[0].duration)){
+                    newArray.splice(i+1,0,flight)
+                    isFlightPushed = true
+                }
+            })
         }
     })
-    
-    return newArray.map(f=>durationConverter(f.itineraries[0].duration))
+    return newArray
 }
 
 export default sortByDuration

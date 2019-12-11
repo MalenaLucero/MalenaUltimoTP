@@ -6,6 +6,7 @@ import PaymentFooter from './components/PaymentFooter'
 import FetchData from './helpers/FetchData'
 import flightsSlicer from './helpers/flightsSlicer'
 import sortByDuration from './helpers/sortByDuration'
+import durationConverter from './helpers/durationConverter'
 //styles
 import '../src/shared.scss'
 import './Results.scss'
@@ -18,6 +19,7 @@ const Results = ({match}) =>{
     const [ flights, setFlights ] = useState([ '' ])
     const [ flightsNumber, setFlightsNumber] = useState(5)
     let flightsToShow = flightsSlicer(flights, flightsNumber)
+    if(flights.length!==1) console.log(flights.map(f=>durationConverter(f.itineraries[0].duration)))
     useEffect(() => {
 		async function getTrip() {
             toggleLoading(true)
@@ -41,9 +43,8 @@ const Results = ({match}) =>{
                 <nav>
                     <span>Sort by:</span>
                     <a href={'#'}>Price</a>
-                    <a href={'#'} onClick={()=>console.log(sortByDuration(flights))}>Duration</a>
-                    <a href={'#'}>Recommended</a>
-                    <a href={'#'}>Airline</a>
+                    <a href={'#'} onClick={()=>setFlights(sortByDuration(flights))}>Duration</a>
+                    <a href={'#'} >Airline</a>
                     </nav>
                     <div>
                         {isLoading ? <p>Loading...</p> : null}
