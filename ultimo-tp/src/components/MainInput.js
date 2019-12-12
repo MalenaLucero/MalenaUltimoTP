@@ -1,5 +1,5 @@
 import React from 'react'
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Formik, Field, Form, ErrorMessage } from 'formik'
 import {useHistory} from 'react-router-dom'
 import FlightModel from '../helpers/FlightModel'
 import './MainInput.scss'
