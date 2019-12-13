@@ -6,7 +6,9 @@ import PaymentFooter from './components/PaymentFooter'
 import FetchData from './helpers/FetchData'
 import flightsSlicer from './helpers/flightsSlicer'
 import sortByDuration from './helpers/sortByDuration'
+import sortByPrice from './helpers/sortByPrice'
 import durationConverter from './helpers/durationConverter'
+
 //styles
 import '../src/shared.scss'
 import './Results.scss'
@@ -40,12 +42,12 @@ const Results = ({match}) =>{
             <main className={'resultsContainer'}>
                 <div className={'filters'}>Filters</div>
                 <div className={'results'}>
-                <nav>
-                    <span>Sort by:</span>
-                    <a href={'#'}>Price</a>
-                    <a href={'#'} onClick={()=>setFlights(sortByDuration(flights))}>Duration</a>
-                    <a href={'#'} >Airline</a>
-                    </nav>
+                    <nav>
+                        <span>Sort by:</span>
+                        <a href={'#'} onClick={()=>setFlights(sortByPrice(flights))}>Price</a>
+                        <a href={'#'} onClick={()=>setFlights(sortByDuration(flights))}>Duration</a>
+                        <a href={'#'} >Airline</a>
+                        </nav>
                     <div>
                         {isLoading ? <p>Loading...</p> : null}
                         <ul>{showResults && flights.length !== 0 ? flightsToShow.map((f,i)=><ResultItem key={i} flight={f} flightSearch={flightSearch}/>) : null}</ul>
