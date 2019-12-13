@@ -17,6 +17,9 @@
             flex-grow: 0;
             width: 100%;
             margin: 10px 0;
+            @media(max-width: $small-break){
+                flex-basis: 100%;
+            }
         }
         .birthdayInputs{
             width: 100%;

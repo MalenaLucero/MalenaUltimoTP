@@ -38,11 +38,11 @@ const BillingInformationInputs = () =>{
                     <div className={'cardDetails'}>
                         <Field as='select' name='validUntilMonth'>
                             <option value="" disabled selected>Month</option>
-                            {months.map(m=><option value={m.number}>{m.number}</option>)}
+                            {months.map((m,i)=><option key={i} value={m.number}>{m.number}</option>)}
                         </Field>
                         <Field as='select' name='validUntilYear'>
                             <option value="" disabled selected>Year</option>
-                            {years.map(y=><option value={y}>{y}</option>)}
+                            {years.map((y,i)=><option key={i} value={y}>{y}</option>)}
                         </Field>
                         <Field name='securityCode' placeholder='Security code'/>  
                     </div>

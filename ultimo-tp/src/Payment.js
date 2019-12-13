@@ -43,11 +43,15 @@ const Payment = ({match}) =>{
                         initialValues={passengerDetailsModel, billingInformationModel}
                         onSubmit={values=>console.log(values)}
                     >
-                        <Form class='mainPaymentForm'>
-                            <h3>Enter Passenger Details</h3>
-                            <PassengerDetailsInput/>
-                            <h3>Enter Billing Information</h3>
-                            <BillingInformationInputs/>
+                        <Form className='mainPaymentForm'>
+                            <div className={'passengerDetailsContainer'}>
+                                <h3>Enter Passenger Details</h3>
+                                {showResults ? chosenFlight.travelerPricings.map((adult,i)=><PassengerDetailsInput key={i} number={i+1}/>) : null} 
+                            </div>
+                            <div className={'billingInformationContainer'}>
+                                <h3>Enter Billing Information</h3>
+                                <BillingInformationInputs/>
+                            </div>
                             <div className={'paymentTotalContainer'}>
                                 <div className={'paymentTotalText'}>
                                     <h3>Total</h3>

@@ -2,7 +2,7 @@ import React from 'react'
 import {Field} from 'formik'
 import './PassengerDetailsInput.scss'
 
-const PassengerDetailsInput = () =>{
+const PassengerDetailsInput = ({number}) =>{
     const years = [...Array(100).keys()].map(e=>e+1920)
     const months = [
         {letters: 'January', number:'01'}, 
@@ -20,32 +20,32 @@ const PassengerDetailsInput = () =>{
     const days = [...Array(31).keys()].map(e=>e+1)
     return(
         <React.Fragment>
-            <h4 className={'paymentFormSubtitle'}>Passenger 1</h4>
+        <h4 className={'paymentFormSubtitle'}>{`Passenger ${number}`}</h4>
             <div className={'inputsContainer'}>
                 <div className={'birthdayInputs'}>
-                    <Field as='select' name='birthDay' className={'birthDay'}>
+                    <Field as='select' name={`birthDay${number}`} className={'birthDay'}>
                         <option value="" disabled selected>Day</option>
-                        {days.map(d=><option value={d}>{d}</option>)}
+                        {days.map((d,i)=><option key={i} value={d}>{d}</option>)}
                     </Field>
-                    <Field as='select' name='birthMonth' className={'birthDay'}>
+                    <Field as='select' name={`birthMonth${number}`} className={'birthDay'}>
                         <option value="" disabled selected>Month</option>
-                        {months.map(m=><option value={m.number}>{m.letters}</option>)}
+                        {months.map((m,i)=><option key={i} value={m.number}>{m.letters}</option>)}
                     </Field>
-                    <Field as='select' name='birthYear' className={'birthDay'}>
+                    <Field as='select' name={`birthYear${number}`} className={'birthDay'}>
                         <option value="" disabled selected>Year</option>
-                        {years.map(y=><option value={y}>{y}</option>)}
+                        {years.map((y,i)=><option key={i} value={y}>{y}</option>)}
                     </Field>
                 </div>
-                <Field as='select' name='gender' className={'paymentInput'}>
+                <Field as='select' name={`gender${number}`} className={'paymentInput'}>
                     <option value="" disabled selected>Gender</option>
                     <option value='female'>female</option>
                     <option value='male'>male</option>
                     <option value='other'>other</option>
                 </Field>
-                <Field name='firstName' placeholder='First name' className={'paymentInput'}/>
-                <Field name='lastName' placeholder='Lastname' className={'paymentInput'}/>
-                <Field name='passportSerial' placeholder='Passport serial' className={'paymentInput'}/>
-                <Field name='citizenship' placeholder='Citizenship' className={'paymentInput'}/>  
+                <Field name={`firstName${number}`} placeholder='First name' className={'paymentInput'}/>
+                <Field name={`lastname${number}`} placeholder='Lastname' className={'paymentInput'}/>
+                <Field name={`passportSerial${number}`} placeholder='Passport serial' className={'paymentInput'}/>
+                <Field name={`citizenship${number}`} placeholder='Citizenship' className={'paymentInput'}/>  
             </div>
         </React.Fragment>
     )
