@@ -52,6 +52,21 @@ $input-border-radius: 5px;
     font-size: $small-font-size;
 }
 
+//inputs
+@mixin payment-input{
+    padding: 10px;
+    border-radius: 2px;
+    border: 1px solid $secondary-color;
+    font-size: $small-font-size;
+}
+
+select{
+    padding: 10px;
+    border-radius: 2px;
+    border: 1px solid $secondary-color;
+    font-size: $small-font-size;
+}
+
 body{
     box-sizing: border-box;
     margin: 0;

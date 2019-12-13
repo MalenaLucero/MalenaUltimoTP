@@ -6,6 +6,8 @@ import ChosenFlightInfo from './components/ChosenFlightInfo'
 import BookingSummary from './components/BookingSummary'
 import Charges from './components/Charges'
 import PaymentFooter from './components/PaymentFooter'
+import PassengerDetailsInput from './components/PassengerDetailsInput'
+import BillingInformationInputs from './components/BillingInformationInputs'
 //helpers
 import FetchData from './helpers/FetchData'
 import passengerDetailsModel from './helpers/passengerDetailsModel'
@@ -41,41 +43,11 @@ const Payment = ({match}) =>{
                         initialValues={passengerDetailsModel, billingInformationModel}
                         onSubmit={values=>console.log(values)}
                     >
-                        <Form>
+                        <Form class='mainPaymentForm'>
                             <h3>Enter Passenger Details</h3>
-                            <h4>Passenger 1</h4>
-                            <Field as='select' name='birthMonth'>
-                                <option value='01'>Jan</option>
-                            </Field>
-                            <Field as='select' name='gender'>
-                                <option value='female'>female</option>
-                                <option value='male'>male</option>
-                            </Field>
-                            <Field name='firstName' placeholder='First name'/>
-                            <Field name='lastName' placeholder='Lastname'/>
-                            <Field name='passportSerial' placeholder='Passport serial'/>
-                            <Field name='citizenship' placeholder='Citizenship'/>    
-
-                            <div>
-                                <h3>Enter Billing Information</h3>
-                                <div>
-                                    <h4>Billing Address</h4>
-                                    <Field name='street1' placeholder='Street (line 1)'/>
-                                    <Field name='street2' placeholder='Street (line 2)'/>
-                                    <Field name='postalCode' placeholder='Postal code'/>
-                                    <Field name='city' placeholder='City'/>
-                                    <Field name='state' placeholder='State/Region'/>
-                                    <Field name='country' placeholder='Select country'/>
-                                    <Field name='nameOnCard' placeholder='Name on card'/>
-                                    <Field name='cardNumber' placeholder='Card number'/>
-                                    <Field as='select' name='validUntilMonth' placeholder=''/>
-                                    <Field as='select' name='validUntilYear' placeholder=''/>
-                                    <Field name='securityCode' placeholder='Security code'/>
-                                </div>
-                                <div>
-                                    <h4>Card details</h4>
-                                </div>
-                            </div>
+                            <PassengerDetailsInput/>
+                            <h3>Enter Billing Information</h3>
+                            <BillingInformationInputs/>
                             <div className={'paymentTotalContainer'}>
                                 <div className={'paymentTotalText'}>
                                     <h3>Total</h3>
