@@ -1,6 +1,6 @@
 //rearranges the array so that cheaper flights come first
 
-const sortByPrice = (flights) =>{
+const sortByPrice = (flights, ascendingPrice) =>{
     let newArray = []
     flights.forEach((flight,index)=>{
         if(index === 0){
@@ -22,6 +22,7 @@ const sortByPrice = (flights) =>{
             })
         }
     })
+    if(!ascendingPrice) newArray.reverse()
     return newArray
 }
 

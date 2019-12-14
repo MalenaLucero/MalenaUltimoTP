@@ -1,0 +1,33 @@
+@import '../shared.scss';
+
+.sortingNav{
+    display: flex;
+    background-color: white;
+    margin-top: 20px;
+    div{
+        display: flex;
+        flex-direction: column;
+        margin: 20px 10px;
+        border-right: 1px solid $secondary-color;
+        padding-right: 20px;
+        &:first-child{
+            margin-left: 20px;
+        }
+        .biggerAnchor{
+            text-decoration: none;
+            color: $secondary-color;
+            margin-bottom: 10px;
+            &:hover{
+                color: $alternative-color;
+            }
+        }
+        .smallerAnchor{
+            font-size: $very-small-font-size;
+            text-decoration: none;
+            color: $secondary-color;
+            &:hover{
+                color: black;
+            }
+        }
+    }
+}

@@ -3,7 +3,7 @@
 
 import durationConverter from './durationConverter'
 
-const sortByDuration = (flights) =>{
+const sortByDuration = (flights, ascendingDuration) =>{
     let newArray = []
     flights.forEach((flight,index)=>{
         if(index === 0){
@@ -25,6 +25,7 @@ const sortByDuration = (flights) =>{
             })
         }
     })
+    if(!ascendingDuration) newArray.reverse()
     return newArray
 }
 

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import MainNav from './components/MainNav'
 import ResultItem from './components/ResultItem'
 import PaymentFooter from './components/PaymentFooter'
+import SortResults from './components/SortResults'
 //helpers
 import FetchData from './helpers/FetchData'
 import flightsSlicer from './helpers/flightsSlicer'
@@ -42,12 +43,7 @@ const Results = ({match}) =>{
             <main className={'resultsContainer'}>
                 <div className={'filters'}>Filters</div>
                 <div className={'results'}>
-                    <nav>
-                        <span>Sort by:</span>
-                        <a href={'#'} onClick={()=>setFlights(sortByPrice(flights))}>Price</a>
-                        <a href={'#'} onClick={()=>setFlights(sortByDuration(flights))}>Duration</a>
-                        <a href={'#'} >Airline</a>
-                        </nav>
+                    {showResults ? <SortResults flights={flights} setFlights={setFlights}/> : null}
                     <div>
                         {isLoading ? <p>Loading...</p> : null}
                         <ul>{showResults && flights.length !== 0 ? flightsToShow.map((f,i)=><ResultItem key={i} flight={f} flightSearch={flightSearch}/>) : null}</ul>
