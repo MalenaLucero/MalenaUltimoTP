@@ -22,7 +22,6 @@ const Results = ({match}) =>{
     const [ flightsNumber, setFlightsNumber ] = useState(5)
     const [ filteredFlights, setFilteredFlights ] = useState([''])
     let flightsToShow = flightsSlicer(flights, flightsNumber)
-    //stops
     useEffect(() => {
 		async function getTrip() {
             toggleLoading(true)
