@@ -15,7 +15,7 @@ const sortByPrice = (flights, ascendingPrice) =>{
                 if(isFlightPushed === false && parseFloat(flight.price.grandTotal) < parseFloat(f.price.grandTotal)){
                     newArray.splice(i,0,flight)
                     isFlightPushed = true
-                }else if(isFlightPushed === false && parseFloat(flight.price.grandTotal) == parseFloat(f.price.grandTotal)){
+                }else if(isFlightPushed === false && parseFloat(flight.price.grandTotal) === parseFloat(f.price.grandTotal)){
                     newArray.splice(i+1,0,flight)
                     isFlightPushed = true
                 }

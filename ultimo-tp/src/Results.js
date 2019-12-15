@@ -7,9 +7,6 @@ import StopsFilter from './components/StopsFilter'
 //helpers
 import FetchData from './helpers/FetchData'
 import flightsSlicer from './helpers/flightsSlicer'
-import sortByDuration from './helpers/sortByDuration'
-import sortByPrice from './helpers/sortByPrice'
-import durationConverter from './helpers/durationConverter'
 import flightsFilter from './helpers/flightsFilter'
 import stopsArray from './helpers/stopsArray'
 //styles
@@ -23,7 +20,7 @@ const Results = ({match}) =>{
     const [ flights, setFlights ] = useState([ '' ])
     const [ filteredFlights, setFilteredFlights] = useState([])
     const [ flightsNumber, setFlightsNumber ] = useState(5)
-    let flightsToShow = flightsSlicer(flights, flightsNumber)
+    let flightsToShow = flightsSlicer(filteredFlights, flightsNumber)
     //filters
     const [chosenStops, setChosenStops] = useState([])
     useEffect(() => {
@@ -32,13 +29,14 @@ const Results = ({match}) =>{
             let response = await FetchData(flightSearch)
             console.log(response.data.filter(f=>f.oneWay.toString() === flightSearch.oneWay))
             setFlights(response.data.filter(f=>f.oneWay.toString() === flightSearch.oneWay))
+            setFilteredFlights(response.data.filter(f=>f.oneWay.toString() === flightSearch.oneWay))
             toggleLoading(false)
             setShowResults(true)
 		}
 		getTrip()
     }, [])
     useEffect(()=>{
-        console.log(flightsFilter(flights, chosenStops))
+        setFilteredFlights(flightsFilter(flights, chosenStops))
     }, [chosenStops])
     return(
         <React.Fragment>
@@ -51,16 +49,19 @@ const Results = ({match}) =>{
                     {showResults ? <StopsFilter chosenStops={chosenStops} setChosenStops={setChosenStops} stops={stopsArray(flights)}/> : null}
                 </div>
                 <div className={'results'}>
-                    {showResults ? <SortResults flights={flights} setFlights={setFlights}/> : null}
+                    {showResults ? <SortResults flights={filteredFlights} setFlights={setFilteredFlights}/> : null}
                     <div>
                         {isLoading ? <p>Loading...</p> : null}
                         <ul>{showResults && flights.length !== 0 ? flightsToShow.map((f,i)=><ResultItem key={i} flight={f} flightSearch={flightSearch}/>) : null}</ul>
                         {showResults && flights.length === 0 ? <p>No flights were found</p> : null}  
-                        <a className={'showMoreButton'} onClick={(e)=>{
-                            e.preventDefault()
-                            let number = flightsNumber + 5
-                            setFlightsNumber(number)
-                        }}href={'#'}>SHOW MORE</a>
+                        {filteredFlights.length > flightsNumber ?
+                            <a className={'showMoreButton'} onClick={(e)=>{
+                                e.preventDefault()
+                                let number = flightsNumber + 5
+                                setFlightsNumber(number)
+                                }}href={'#'}>SHOW MORE</a>
+                                : null
+                        }
                     </div>
                 </div>
                 <div className={'advertisements'}>Adverts</div>
