@@ -40,7 +40,7 @@ const Payment = ({match}) =>{
                     {isLoading ? <p>Loading...</p> : null}
                     {showResults ? <ChosenFlightInfo flight={chosenFlight}/> : null}
                     <Formik
-                        initialValues={passengerDetailsModel, billingInformationModel}
+                        initialValues={passengerDetailsModel(chosenFlight.travelingPricings), billingInformationModel}
                         onSubmit={values=>console.log(values)}
                     >
                         <Form className='mainPaymentForm'>
