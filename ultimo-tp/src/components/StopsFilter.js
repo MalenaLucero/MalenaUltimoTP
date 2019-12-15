@@ -1,5 +1,4 @@
-import React, {useState} from 'react'
-import stopsArray from '../helpers/stopsArray'
+import React from 'react'
 
 const checkboxText = (s) =>{
     switch (s){
@@ -8,17 +7,32 @@ const checkboxText = (s) =>{
         case 1: return '1 stop'
             break
         default: return `${s} stops`
+            break
     }
 }
 
-const StopsFilter = ({filteredFlights, setFilteredFlights}) =>{
-    const stops = stopsArray(filteredFlights)
-    console.log(stops)
-    const [chosenStops, setChosenStops] = useState({stops0: false, stops1: false, stops2: false, stops3: false})
+const StopsFilter = ({chosenStops, setChosenStops, stops}) =>{
     const handleOnChange = (event) =>{
-        setChosenStops({...chosenStops, [event.target.name]: event.target.checked})
+        if(event.target.checked){
+            let aux = []
+            aux.push(event.target.name)
+            setChosenStops([...chosenStops, ...aux])
+        }else if(!event.target.checked){
+            let index = chosenStops.indexOf(event.target.name)
+            let aux = chosenStops
+            aux.splice(index,1)
+            setChosenStops(aux)
+        }
     }
-    console.log(chosenStops)
+    const isChecked = s =>{
+        chosenStops.find(e=>{
+            if(e===s){
+                return true
+            }else{
+                return false
+            }
+        })
+    }
     return(
         <div>
             <h4>STOPS</h4>
@@ -26,9 +40,9 @@ const StopsFilter = ({filteredFlights, setFilteredFlights}) =>{
                 <div key={i}>
                     <label>
                         <input  
-                            name={`stops${s}`}
+                            name={s}
                             type='checkbox'
-                            checked={chosenStops[`stops${s}`]}
+                            checked={isChecked(s)}
                             onChange={handleOnChange}
                         />
                         {checkboxText(s)}

@@ -10,6 +10,8 @@ import flightsSlicer from './helpers/flightsSlicer'
 import sortByDuration from './helpers/sortByDuration'
 import sortByPrice from './helpers/sortByPrice'
 import durationConverter from './helpers/durationConverter'
+import flightsFilter from './helpers/flightsFilter'
+import stopsArray from './helpers/stopsArray'
 //styles
 import '../src/shared.scss'
 import './Results.scss'
@@ -19,21 +21,25 @@ const Results = ({match}) =>{
     const [ isLoading, toggleLoading ] = useState(false)
     const [ showResults, setShowResults ] = useState(false)
     const [ flights, setFlights ] = useState([ '' ])
+    const [ filteredFlights, setFilteredFlights] = useState([])
     const [ flightsNumber, setFlightsNumber ] = useState(5)
-    const [ filteredFlights, setFilteredFlights ] = useState([''])
     let flightsToShow = flightsSlicer(flights, flightsNumber)
+    //filters
+    const [chosenStops, setChosenStops] = useState([])
     useEffect(() => {
 		async function getTrip() {
             toggleLoading(true)
             let response = await FetchData(flightSearch)
             console.log(response.data.filter(f=>f.oneWay.toString() === flightSearch.oneWay))
             setFlights(response.data.filter(f=>f.oneWay.toString() === flightSearch.oneWay))
-            setFilteredFlights(response.data.filter(f=>f.oneWay.toString() === flightSearch.oneWay))
             toggleLoading(false)
             setShowResults(true)
 		}
 		getTrip()
-	}, [])
+    }, [])
+    useEffect(()=>{
+        console.log(flightsFilter(flights, chosenStops))
+    }, [chosenStops])
     return(
         <React.Fragment>
             <header className={'resultsHeader'}>
@@ -42,7 +48,7 @@ const Results = ({match}) =>{
             </header>
             <main className={'resultsContainer'}>
                 <div className={'filters'}>
-                    {showResults ? <StopsFilter filteredFlights={filteredFlights} setFilteredFlights={setFilteredFlights}/> : null}
+                    {showResults ? <StopsFilter chosenStops={chosenStops} setChosenStops={setChosenStops} stops={stopsArray(flights)}/> : null}
                 </div>
                 <div className={'results'}>
                     {showResults ? <SortResults flights={flights} setFlights={setFlights}/> : null}
