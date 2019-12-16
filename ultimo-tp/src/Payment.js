@@ -59,7 +59,7 @@ const Payment = ({match}) =>{
                                 </div>
                                 {showResults ? <p className={'paymentTotalAmount'}>{`$${chosenFlight.price.grandTotal}`}</p> : null}
                             </div>
-                            <button className={'paymentMainButton'}>Book now</button>
+                            <button type={'button'} className={'paymentMainButton'}>Book now</button>
                         </Form>
                     </Formik>
                 </div>
