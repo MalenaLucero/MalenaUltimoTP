@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
+//components
 import MainNav from './components/MainNav'
+import Loader from './components/Loader'
 import ResultItem from './components/ResultItem'
 import PaymentFooter from './components/PaymentFooter'
 import SortResults from './components/SortResults'
@@ -12,6 +14,8 @@ import stopsArray from './helpers/stopsArray'
 //styles
 import '../src/shared.scss'
 import './Results.scss'
+//images
+import advertisement from './images/advertisement.jpg'
 
 const Results = ({match}) =>{
     const flightSearch = JSON.parse(atob(match.params.flight))
@@ -51,7 +55,7 @@ const Results = ({match}) =>{
                 <div className={'results'}>
                     {showResults ? <SortResults flights={filteredFlights} setFlights={setFilteredFlights}/> : null}
                     <div>
-                        {isLoading ? <p>Loading...</p> : null}
+                        {isLoading ? <Loader text={'Estamos buscando los mejores vuelos...'}/> : null}
                         <ul>{showResults && flights.length !== 0 ? flightsToShow.map((f,i)=><ResultItem key={i} flight={f} flightSearch={flightSearch}/>) : null}</ul>
                         {showResults && flights.length === 0 ? <p>No flights were found</p> : null}  
                         {filteredFlights.length > flightsNumber ?
@@ -64,7 +68,10 @@ const Results = ({match}) =>{
                         }
                     </div>
                 </div>
-                <div className={'advertisements'}>Adverts</div>
+                <div className={'advertisements'}>
+                    <img src={advertisement}/>
+                    <p>Advertisement</p>
+                </div>
             </main>
             <PaymentFooter/>
         </React.Fragment>

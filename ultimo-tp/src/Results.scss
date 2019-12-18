@@ -16,6 +16,8 @@
 .resultsContainer{
     display: flex;
     background-color: lightgrey;
+    min-height: 50vh;
+    padding-bottom: 20px;
     @media(max-width: $medium-break){
         flex-direction: column-reverse;
         @include main-container-padding;
@@ -23,6 +25,11 @@
     .filters, .advertisements{
         flex-basis: 15%;
         flex-grow: 0;
+        padding: 20px;
+        margin: 20px;
+    }
+    .advertisements{
+        background-color: white;
     }
     .results{
         flex-basis: 70%;

@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { Formik, Field, Form, ErrorMessage } from 'formik';
 //components
 import MainNav from './components/MainNav'
+import Loader from './components/Loader'
 import ChosenFlightInfo from './components/ChosenFlightInfo'
 import BookingSummary from './components/BookingSummary'
 import Charges from './components/Charges'
@@ -37,7 +38,7 @@ const Payment = ({match}) =>{
             <MainNav className={'normal'}/>
             <div className={'checkoutContainer'}>
                 <div className={'mainInfo'}>
-                    {isLoading ? <p>Loading...</p> : null}
+                    {isLoading ? <Loader text={'Estamos buscando el vuelo que elegiste. Ya falta poco :)'}/> : null}
                     {showResults ? <ChosenFlightInfo flight={chosenFlight}/> : null}
                     <Formik
                         initialValues={passengerDetailsModel(chosenFlight.travelingPricings), billingInformationModel}
