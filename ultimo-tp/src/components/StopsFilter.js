@@ -1,4 +1,5 @@
 import React from 'react'
+import './StopsFilter.scss'
 
 const checkboxText = (s) =>{
     switch (s){
@@ -34,7 +35,7 @@ const StopsFilter = ({chosenStops, setChosenStops, stops}) =>{
         })
     }
     return(
-        <div>
+        <div className={'stopsFilter'}>
             <h4>STOPS</h4>
             {stops.map((s,i)=>
                 <div key={i}>

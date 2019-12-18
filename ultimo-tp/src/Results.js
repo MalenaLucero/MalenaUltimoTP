@@ -15,7 +15,8 @@ import stopsArray from './helpers/stopsArray'
 import '../src/shared.scss'
 import './Results.scss'
 //images
-import advertisement from './images/advertisement.jpg'
+import advertisementLong from './images/advertisement.jpg'
+import advertisementSquare from './images/advertisement_square.jpg'
 
 const Results = ({match}) =>{
     const flightSearch = JSON.parse(atob(match.params.flight))
@@ -69,8 +70,10 @@ const Results = ({match}) =>{
                     </div>
                 </div>
                 <div className={'advertisements'}>
-                    <img src={advertisement}/>
-                    <p>Advertisement</p>
+                    <div className={'advertisementContainer'}>
+                        {window.innerWidth > 1000 ? <img src={advertisementLong}/> : <img src={advertisementSquare}/>}
+                        <p>Advertisement</p>  
+                    </div>
                 </div>
             </main>
             <PaymentFooter/>
