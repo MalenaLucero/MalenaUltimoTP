@@ -13,6 +13,7 @@
             border: 1px solid $secondary-color;
             padding: 20px 0;
             color: $main-color;
+            height: 30px;
             &:first-of-type{
                 border-top-left-radius: $input-border-radius;
                 border-bottom-left-radius: $input-border-radius;

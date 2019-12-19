@@ -20,7 +20,7 @@ const ContactNav = () =>{
     return(
         <div className={'contactNavContainer'}>
             <ul className={'footerNav'}>
-                {footerNav.map((f,i)=><a key={i} href={f.href}>{f.title}</a>)}
+                {footerNav.map((f,i)=><li key={i}><a href={f.href}>{f.title}</a></li>)}
             </ul>
             <ul className={'socialMedia'}>
                 <a href={"index.html"}><FontAwesomeIcon icon={faFacebook}/></a> 

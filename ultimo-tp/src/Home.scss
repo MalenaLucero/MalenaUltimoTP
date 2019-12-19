@@ -30,6 +30,7 @@
         z-index: 999;
         @media(max-width: $small-break){
             align-self: center;
+            text-align: center;
         }
         .homeTitle{
             font-weight: normal;
