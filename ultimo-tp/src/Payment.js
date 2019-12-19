@@ -17,6 +17,7 @@ import billingInformationModel from './helpers/billingInformationModel'
 import '../src/shared.scss'
 import './Payment.scss'
 
+
 const Payment = ({match}) =>{
     const {flight, id} = match.params
     const [chosenFlight, setChosenFlight] = useState({})

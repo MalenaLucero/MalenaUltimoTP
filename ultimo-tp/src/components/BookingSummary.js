@@ -11,7 +11,7 @@ const BookingSummary = ({className, flight}) =>{
     return(
         <div className={className}>
             <h3 className={'bookingSummaryTitle'}>Booking Summary</h3>
-            <p>{`${isOneWay}, ECONOMY, ${passengers}`}</p>
+            <p>{`${isOneWay}, economy, ${passengers}`}</p>
             <div>
                 <p>Depart: {dateConverter(departureDate)}</p>
                 <p>Return: {dateConverter(returnDate)}</p>

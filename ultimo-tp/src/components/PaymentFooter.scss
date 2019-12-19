@@ -65,6 +65,10 @@
             }
         }
         .newsletter{
+            background-image: url('../images/temple.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
             flex-basis: 30%;
             flex-grow: 0;
             display: flex;
@@ -73,6 +77,7 @@
             background-color:blue;
             padding: 10px 0;
             min-height: 200px;
+            text-shadow: 1px 1px 2px black;
             h4{
                 margin: 0 20px;
                 color: $main-color;

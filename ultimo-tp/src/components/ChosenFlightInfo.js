@@ -34,7 +34,7 @@ const ChosenFlightInfo = ({flight}) =>{
             <div className={'chosenFlight'}>
                 <div className={'chosenFlightDetails'}>
                     <h2 className={'chosenFlightCities'}>{`${departureCity} → ${arrivalCity}`}</h2>
-                    <p>{`${isOneWay}, ECONOMY, ${passengers}`}</p>
+                    <p>{`${isOneWay}, economy, ${passengers}`}</p>
                     <div>
                         <p>Depart: {dateConverter(departureDate)}</p>
                         <p>Return: {dateConverter(returnDate)}</p>
