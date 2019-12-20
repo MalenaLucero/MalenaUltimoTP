@@ -36,12 +36,12 @@ const BillingInformationInputs = () =>{
                     <Field name='nameOnCard' placeholder='Name on card' className={'paymentInput'}/>
                     <Field name='cardNumber' placeholder='Card number' className={'paymentInput'}/>
                     <div className={'cardDetails'}>
-                        <Field as='select' name='validUntilMonth'>
-                            <option value="" disabled selected>Month</option>
+                        <Field as='select' defaultValue={"Month"} name='validUntilMonth'>
+                            <option value={'Month'} disabled>Month</option>
                             {months.map((m,i)=><option key={i} value={m.number}>{m.number}</option>)}
                         </Field>
-                        <Field as='select' name='validUntilYear'>
-                            <option value="" disabled selected>Year</option>
+                        <Field as='select' defaultValue={"Year"} name='validUntilYear'>
+                            <option value={'Year'} disabled>Year</option>
                             {years.map((y,i)=><option key={i} value={y}>{y}</option>)}
                         </Field>
                         <Field name='securityCode' placeholder='Security code'/>  

@@ -3,9 +3,9 @@ import './Loader.scss'
 
 const Loader = ({text}) =>{
     return(
-        <div class={'loaderContainer'}>
-            <div class={'loader'}></div>
-            <p class={'loaderText'}>{text}</p>
+        <div className={'loaderContainer'}>
+            <div className={'loader'}></div>
+            <p className={'loaderText'}>{text}</p>
         </div>
     )
 }

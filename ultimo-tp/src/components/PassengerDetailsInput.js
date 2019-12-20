@@ -23,21 +23,21 @@ const PassengerDetailsInput = ({number}) =>{
         <h4 className={'paymentFormSubtitle'}>{`Passenger ${number}`}</h4>
             <div className={'inputsContainer'}>
                 <div className={'birthdayInputs'}>
-                    <Field as='select' name={`birthDay${number}`} className={'birthDay'}>
-                        <option value="" disabled selected>Day</option>
+                    <Field as='select' defaultValue={'Day'} name={`birthDay${number}`} className={'birthDay'}>
+                        <option value={'Day'} disabled>Day</option>
                         {days.map((d,i)=><option key={i} value={d}>{d}</option>)}
                     </Field>
-                    <Field as='select' name={`birthMonth${number}`} className={'birthDay'}>
-                        <option value="" disabled selected>Month</option>
+                    <Field as='select' defaultValue={'Month'} name={`birthMonth${number}`} className={'birthDay'}>
+                        <option value={'Month'} disabled>Month</option>
                         {months.map((m,i)=><option key={i} value={m.number}>{m.letters}</option>)}
                     </Field>
-                    <Field as='select' name={`birthYear${number}`} className={'birthDay'}>
-                        <option value="" disabled selected>Year</option>
+                    <Field as='select' defaultValue={'Year'} name={`birthYear${number}`} className={'birthDay'}>
+                        <option value={'Year'} disabled>Year</option>
                         {years.map((y,i)=><option key={i} value={y}>{y}</option>)}
                     </Field>
                 </div>
-                <Field as='select' name={`gender${number}`} className={'paymentInput'}>
-                    <option value="" disabled selected>Gender</option>
+                <Field as='select' defaultValue={'Gender'} name={`gender${number}`} className={'paymentInput'}>
+                    <option value={'Gender'} disabled>Gender</option>
                     <option value='female'>female</option>
                     <option value='male'>male</option>
                     <option value='other'>other</option>

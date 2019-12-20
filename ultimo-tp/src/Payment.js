@@ -23,7 +23,6 @@ const Payment = ({match}) =>{
     const [chosenFlight, setChosenFlight] = useState({})
     const [ isLoading, toggleLoading ] = useState(false)
     const [ showResults, setShowResults] = useState(false)
-    console.log(chosenFlight)
     useEffect(() => {
 		async function getTrip() {
             toggleLoading(true)
