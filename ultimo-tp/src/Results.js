@@ -14,7 +14,7 @@ import stopsArray from './helpers/stopsArray'
 //styles
 import '../src/shared.scss'
 import './Results.scss'
-//images
+//images  --> muy buen uso de estos comentarios y del orden en los imports
 import advertisementLong from './images/advertisement.jpg'
 import advertisementSquare from './images/advertisement_square.jpg'
 
@@ -36,12 +36,13 @@ const Results = ({match}) =>{
             setFilteredFlights(response.data.filter(f=>f.oneWay.toString() === flightSearch.oneWay))
             toggleLoading(false)
             setShowResults(true)
-		}
+        }
+        // la función deberia estar definida fuera del useEffect como arriba y simplemente llamada como abajo. 
 		getTrip()
     }, [])
     useEffect(()=>{
         setFilteredFlights(flightsFilter(flights, chosenStops))
-    }, [chosenStops])
+    }, [chosenStops]) // AMO <3
     return(
         <React.Fragment>
             <header className={'resultsHeader'}>
@@ -56,9 +57,11 @@ const Results = ({match}) =>{
                     {showResults ? <SortResults flights={filteredFlights} setFlights={setFilteredFlights}/> : null}
                     <div>
                         {isLoading ? <Loader text={'Estamos buscando los mejores vuelos...'}/> : null}
+                        {/* esta lista podria ser un componente a parte */}
                         <ul>{showResults && flights.length !== 0 ? flightsToShow.map((f,i)=><ResultItem key={i} flight={f} flightSearch={flightSearch}/>) : null}</ul>
                         {showResults && flights.length === 0 ? <p>No flights were found</p> : null}  
                         {filteredFlights.length > flightsNumber ?
+                            // toda esa funcion del onclick deberia estar nombrada y externalizada
                             <a className={'showMoreButton'} onClick={(e)=>{
                                 e.preventDefault()
                                 let number = flightsNumber + 5

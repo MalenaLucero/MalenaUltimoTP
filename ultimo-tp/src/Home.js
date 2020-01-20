@@ -6,7 +6,7 @@ import ContactNav from './components/ContactNav'
 //styles
 import './Home.scss'
 
-//import * as Yup from 'yup'
+//import * as Yup from 'yup'  --> evitemos dejar codigo comentado sin razon aparente
 
 const Home = () => {
 	return (
